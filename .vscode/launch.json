@@ -10,7 +10,7 @@
         "${workspaceFolder}/data/heat_tc_energies.csv",
         "--unit",
         "mHa",
-        "--save"
+        //"--save"
       ],
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}"
