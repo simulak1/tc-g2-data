@@ -749,9 +749,8 @@ def plot_deltas(
         save_path.parent.mkdir(parents=True, exist_ok=True)
         fig.savefig(save_path, bbox_inches="tight", dpi=300)
         print(f"Saved figure to {save_path}")
-
-    # Still show interactively
-    plt.show()
+    else:
+        plt.show()
 
     if out_csv is not None:
         with out_csv.open("w", newline="") as fh:
