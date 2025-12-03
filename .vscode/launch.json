@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Plot HEAT deltas (heat_tc_energies)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/tools/plot_depth_sweep.py",
+      "args": [
+        "${workspaceFolder}/data/heat_tc_energies.csv",
+        "--unit",
+        "mHa"
+      ],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
