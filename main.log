@@ -1,9 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/TeX Live for SUSE Linux) (preloaded format=pdflatex 2025.3.14)  3 DEC 2025 16:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/TeX Live for SUSE Linux) (preloaded format=pdflatex 2025.3.14)  3 DEC 2025 16:33
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**/home/simula/Desktop/tcjastrowfitting/main.tex
+(/home/simula/Desktop/tcjastrowfitting/main.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18> (/usr/share/texmf/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
@@ -21,32 +22,25 @@ File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
-)
-(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+) (/usr/share/texmf/tex/latex/graphics/graphicx.sty
 Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texmf/tex/latex/graphics/keyval.sty
+ (/usr/share/texmf/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
-)
-(/usr/share/texmf/tex/latex/graphics/graphics.sty
+) (/usr/share/texmf/tex/latex/graphics/graphics.sty
 Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texmf/tex/latex/graphics/trig.sty
+ (/usr/share/texmf/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(/usr/share/texmf/tex/latex/graphics-cfg/graphics.cfg
+) (/usr/share/texmf/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
-
-(/usr/share/texmf/tex/latex/graphics-def/pdftex.def
+ (/usr/share/texmf/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen139
 \Gin@req@width=\dimen140
-)
-(/usr/share/texmf/tex/latex/enumitem/enumitem.sty
+) (/usr/share/texmf/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip49
 \enit@outerparindent=\dimen141
@@ -54,11 +48,9 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@inbox=\box47
 \enit@count@id=\count187
 \enitdp@description=\count188
-)
-(/usr/share/texmf/tex/latex/amsfonts/amssymb.sty
+) (/usr/share/texmf/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-
-(/usr/share/texmf/tex/latex/amsfonts/amsfonts.sty
+ (/usr/share/texmf/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks17
 \symAMSa=\mathgroup4
@@ -66,12 +58,11 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-(/usr/share/texmf/tex/latex/l3backend/l3backend-pdftex.def
+)) (/usr/share/texmf/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count189
 \l__pdf_internal_box=\box48
-) (./main.aux)
+) (/home/simula/Desktop/tcjastrowfitting/main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -88,8 +79,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
-
-(/usr/share/texmf/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/share/texmf/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count190
 \scratchdimen=\dimen142
@@ -103,12 +93,7 @@ LaTeX Font Info:    ... okay on input line 10.
 \makeMPintoPDFobject=\count195
 \everyMPtoPDFconversion=\toks19
 ) (/usr/share/texmf/tex/latex/epstopdf-pkg/epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-
-(/usr/share/texmf/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package eile: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
@@ -122,41 +107,93 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (./todo_list.tex
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
+4.
+
+(/usr/share/texmf/tex/latex/base/omscmr.fd
+File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 14.
 
-! LaTeX Error: File `manuscript/todo_list.tex' not found.
+Overfull \hbox (10.52728pt too wide) in paragraph at lines 15--16
+[]\OT1/cmr/m/n/10 Standard freely-optimized emin re-sults of AE (ano-vdz/cc-pCV
+DZ/aug-
+ []
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: tex)
 
-Enter file name: 
-(/usr/share/texmf/tex/latex/tools/.tex File ignored) [1
+Overfull \hbox (19.72177pt too wide) in paragraph at lines 16--17
+[]\OT1/cmr/m/n/10 Standard freely-optimized varmin re-sults of AE (ano-vdz/cc-p
+CVDZ/aug-
+ []
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+[1
 
-! LaTeX Error: File `manuscript/figures.tex' not found.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) [2] (./figures.tex
+<figures/Free_floating_depths_AE.png, id=16, 860.013pt x 715.473pt>
+File: figures/Free_floating_depths_AE.png Graphic file (type png)
+<use figures/Free_floating_depths_AE.png>
+Package pdftex.def Info: figures/Free_floating_depths_AE.png  used on input lin
+e 6.
+(pdftex.def)             Requested size: 207.0021pt x 172.2083pt.
+<figures/Free_floating_depths_ECP.png, id=18, 867.24pt x 702.4644pt>
+File: figures/Free_floating_depths_ECP.png Graphic file (type png)
+<use figures/Free_floating_depths_ECP.png>
+Package pdftex.def Info: figures/Free_floating_depths_ECP.png  used on input li
+ne 13.
+(pdftex.def)             Requested size: 207.0021pt x 167.66237pt.
+<figures/depth_sweep_eCEPP.png, id=19, 1146.9249pt x 642.7212pt>
+File: figures/depth_sweep_eCEPP.png Graphic file (type png)
+<use figures/depth_sweep_eCEPP.png>
+Package pdftex.def Info: figures/depth_sweep_eCEPP.png  used on input line 24.
+(pdftex.def)             Requested size: 379.5021pt x 212.66747pt.
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: tex)
+Overfull \hbox (34.5021pt too wide) in paragraph at lines 24--25
+ [][] 
+ []
 
-Enter file name: 
-(/usr/share/texmf/tex/latex/tools/.tex File ignored) [2] (./main.aux) ) 
+<figures/depth_sweep_ccECP.png, id=20, 1146.9249pt x 642.7212pt>
+File: figures/depth_sweep_ccECP.png Graphic file (type png)
+<use figures/depth_sweep_ccECP.png>
+Package pdftex.def Info: figures/depth_sweep_ccECP.png  used on input line 33.
+(pdftex.def)             Requested size: 379.5021pt x 212.66747pt.
+
+Overfull \hbox (34.5021pt too wide) in paragraph at lines 33--34
+ [][] 
+ []
+
+[3 <./figures/Free_floating_depths_AE.png> <./figures/Free_floating_depths_ECP.
+png>]) [4 <./figures/depth_sweep_eCEPP.png>] [5 <./figures/depth_sweep_ccECP.pn
+g>] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 2024 strings out of 480031
- 28248 string characters out of 5884516
- 308412 words of memory out of 5000000
- 19352 multiletter control sequences out of 15000+600000
- 408979 words of font info for 48 fonts, out of 8000000 for 9000
+ 2089 strings out of 480031
+ 29514 string characters out of 5884516
+ 315435 words of memory out of 5000000
+ 19406 multiletter control sequences out of 15000+600000
+ 411628 words of font info for 59 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
- 68i,4n,74p,210b,218s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/sh
-are/texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf/fonts/typ
-e1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/c
-m/cmr12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on main.pdf (2 pages, 36069 bytes).
+ 68i,5n,74p,217b,294s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
+/usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf/fo
+nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+</usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/am
+sfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm100
+0.pfb>
+Output written on main.pdf (5 pages, 1996062 bytes).
 PDF statistics:
- 27 PDF objects out of 1000 (max. 8388607)
- 18 compressed objects within 1 object stream
+ 62 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+
+.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on /home/simula/Desktop/tcjastrowfitting/main.pdf (5 pages, 1996062 bytes).
+PDF statistics:
+ 62 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
