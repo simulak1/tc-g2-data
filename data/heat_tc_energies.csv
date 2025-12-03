@@ -810,7 +810,7 @@ heat_depth_neg_035,-0.35,free,free,H2O,eCEPP,avtz,CCSD(T),-17.218887349113,false
 heat_depth_neg_035,-0.35,free,free,H2O2,eCEPP,avdz,CCSD(T),-33.086630423539,false,false,false,false
 heat_depth_neg_035,-0.35,free,free,H2O2,eCEPP,avtz,CCSD(T),-33.124188008933,false,false,false,false
 heat_depth_neg_035,-0.35,free,free,HCN,eCEPP,avdz,CCSD(T),-16.155223526211,false,false,false,false
-heat_depth_neg_035,-0.35,free,free,HCN,eCEPP,avtz,CCSD(T),1.1480345946805045e+47,false,false,false,false
+heat_depth_neg_035,-0.35,free,free,HCN,eCEPP,avtz,CCSD(T),-16.170462763399,false,false,false,false
 heat_depth_neg_035,-0.35,free,free,HCO,eCEPP,avdz,CCSD(T),-22.183240838383,false,false,false,false
 heat_depth_neg_035,-0.35,free,free,HCO,eCEPP,avtz,CCSD(T),-22.212302846782,false,false,false,false
 heat_depth_neg_035,-0.35,free,free,HF,eCEPP,avdz,CCSD(T),-24.860954679794,false,false,false,false
