@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1764775028 "/home/simula/Desktop/tcjastrowfitting/manuscript/main.tex" "/home/simula/Desktop/tcjastrowfitting/manuscript/main.pdf" "main" 1764775028
+["pdflatex"] 1764775727 "/home/simula/Desktop/tcjastrowfitting/manuscript/main.tex" "/home/simula/Desktop/tcjastrowfitting/manuscript/main.pdf" "main" 1764775727
   "/etc/texmf/web2c/texmf.cnf" 1617974667 40935 950c859ef6aa64cd9f8caa18792b2c7d ""
-  "/home/simula/Desktop/tcjastrowfitting/manuscript/main.aux" 1764775028 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/home/simula/Desktop/tcjastrowfitting/manuscript/main.aux" 1764775727 8 a94a2480d3289e625eea47cd1b285758 ""
   "/home/simula/Desktop/tcjastrowfitting/manuscript/main.tex" 1764775027 312 bf29168c0a931c6c38df265e9f10f08c ""
   "/home/simula/Desktop/tcjastrowfitting/manuscript/manuscript/todo_list.tex" 0 -1 0 ""
   "/usr/share/texmf/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -41,11 +41,11 @@
   "/usr/share/texmf/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/share/texmf/web2c/texmf.cnf" 1617974667 40935 950c859ef6aa64cd9f8caa18792b2c7d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1741958352 2544835 c66b54ab9248c8d4b720b8e109ae6f8a ""
-  "main.aux" 0 -1 0 "pdflatex"
+  "main.aux" 1764775727 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
   "main.tex" 1764775027 312 bf29168c0a931c6c38df265e9f10f08c ""
   "manuscript/todo_list.tex" 0 -1 0 ""
   (generated)
-  "main.aux"
-  "/home/simula/Desktop/tcjastrowfitting/manuscript/main.log"
   "main.log"
+  "main.aux"
   "/home/simula/Desktop/tcjastrowfitting/manuscript/main.pdf"
+  "/home/simula/Desktop/tcjastrowfitting/manuscript/main.log"
