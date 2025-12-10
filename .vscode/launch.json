@@ -14,6 +14,18 @@
       ],
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Python: Plot HEAT depths (free)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/tools/plot_free_depths.py",
+      "args": [
+        "${workspaceFolder}/data/heat_tc_energies.csv",
+        //"--save"
+      ],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
     }
   ]
 }
