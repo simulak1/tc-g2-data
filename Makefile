@@ -7,6 +7,7 @@ MAIN_TEX    := main.tex
 MAIN_PDF    := main.pdf
 
 FIG_SCRIPT  := tools/plot_depth_sweep.py
+FIG_SCRIPT2 := tools/plot_free_depths.py
 FIG_CSV     := data/heat_tc_energies.csv
 FIG_DIR     := figures
 
@@ -31,6 +32,7 @@ figures:
 	@echo "==> Generating figures with plot_depth_sweep.py"
 	mkdir -p $(FIG_DIR)
 	$(PYTHON) $(FIG_SCRIPT) $(FIG_CSV) --unit mHa --save
+	$(PYTHON) $(FIG_SCRIPT2) $(FIG_CSV) --output $(FIG_DIR)/free_depths.png
 
 # --------------------------------------------------------------------
 # Cleanup helper (does NOT touch figures/)

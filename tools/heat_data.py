@@ -211,6 +211,8 @@ def read_ccsd_csv(path: Path) -> List[CCRecord]:
         reader = csv.DictReader(fh)
         for row in reader:
             depth: float | None = None
+            if row["core"] == "AE":
+                continue
             if "ee_depth" in row and row["ee_depth"] is not None:
                 s = row["ee_depth"].strip()
                 if s and s.lower() != "free":
