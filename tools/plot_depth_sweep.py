@@ -16,7 +16,7 @@ Compare HEAT reference atomization energies to CCSD(T) results from ccsd_energie
 Usage
 -----
     python plot_heat_delta_vs_depth.py ccsd_energies.csv \
-        --basis-short avdz \
+        --basis aug-cc-pvdz \
         --unit mHa \
         --out-csv heat_delta_vs_project.csv
 """
@@ -60,11 +60,11 @@ def plot_deltas(
 ) -> None:
     """
     atom_E_by_basis:
-        basis_short -> {(project, molecule): atomization E_form_our [Ha]}
+        basis -> {(project, molecule): atomization E_form_our [Ha]}
     form_E_by_basis:
-        basis_short -> {(project, molecule): formation E_form_our [Ha]}
+        basis -> {(project, molecule): formation E_form_our [Ha]}
     project_depths:
-        basis_short -> {project: depth (float or None)}
+        basis -> {project: depth (float or None)}
 
     heat_refs:
         molecule -> HeatRef (electronic atomization reference [Ha])
@@ -208,7 +208,7 @@ def plot_deltas(
 
                     csv_rows.append(
                         {
-                            "basis_short": basis,
+                            "basis": basis,
                             "kind": kind,
                             "molecule": mol,
                             "project": proj,
@@ -340,7 +340,7 @@ def plot_deltas(
             writer = csv.DictWriter(
                 fh,
                 fieldnames=[
-                    "basis_short",
+                    "basis",
                     "kind",         # "atom" or "form"
                     "molecule",
                     "project",
@@ -374,12 +374,12 @@ def main() -> None:
         help="Path to heat_tc_energies.csv (from collect_ccsd_csv.py)",
     )
     parser.add_argument(
-        "--basis-short",
+        "--basis",
         default=None,
         help=(
-            "Filter by basis_short. "
-            "Use a single value (e.g. avdz) or a comma-separated list "
-            "(e.g. avdz,avtz). Each basis gets two columns: atom and form."
+            "Filter by basis. "
+            "Use a single value (e.g. aug-cc-pvdz) or a comma-separated list "
+            "(e.g. aug-cc-pvdz,aug-cc-pvtz). Each basis gets two columns: atom and form."
         ),
     )
     parser.add_argument(
@@ -416,17 +416,17 @@ def main() -> None:
         print(f"Processing core = {core} with {len(core_records)} records")
 
         # Determine which bases to use for *this* core
-        if args.basis_short is None:
-            basis_list = sorted({rec.basis_short for rec in core_records})
+        if args.basis is None:
+            basis_list = sorted({rec.basis for rec in core_records})
         else:
-            basis_list = [b.strip() for b in args.basis_short.split(",") if b.strip()]
+            basis_list = [b.strip() for b in args.basis.split(",") if b.strip()]
 
         atom_E_by_basis: Dict[str, Dict[Tuple[str, str], float]] = {}
         form_E_by_basis: Dict[str, Dict[Tuple[str, str], float]] = {}
         project_depths: Dict[str, Dict[str, float | None]] = {}
 
         for basis in basis_list:
-            energies, depths = build_energy_index(core_records, basis_short=basis)
+            energies, depths = build_energy_index(core_records, basis=basis)
             if not energies:
                 continue
 
@@ -435,7 +435,7 @@ def main() -> None:
             form_E_by_basis[basis] = compute_our_formation(energies, form_refs)
 
         if not atom_E_by_basis and not form_E_by_basis:
-            print(f"No matching data for core={core} and requested basis_short selection.")
+            print(f"No matching data for core={core} and requested basis selection.")
             continue
 
         print(f"Plotting for core = {core}, bases = {', '.join(atom_E_by_basis.keys())}")

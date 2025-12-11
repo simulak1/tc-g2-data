@@ -3,13 +3,13 @@
 Plot depth parameters for AE vs ccECP from a HEAT-style CSV.
 
 - Filters rows with projectname in {"heat_ae_default", "heat_ccecp_default"}
-  AND basis_short == "avdz".
+  AND basis == "aug-cc-pvdz".
 - Parses:
     * ee_depth
     * e{atom}_depth  for atoms C, N, O, F, H
     * ee{atom}_depth for atoms C, N, O, F, H
 - Produces a 2x2 subplot figure:
-    (a) ee_depth per molecule (molecule on x-axis, avdz only)
+    (a) ee_depth per molecule (molecule on x-axis, aug-cc-pvdz only)
     (b) e-n depths per atom (C, N, O, F, H on x-axis)
     (c) "een-depths" per atom, using ee{atom}_depth columns
     (d) sum_{atom}( e{atom}_depth + ee{atom}_depth ) per atom
@@ -35,7 +35,7 @@ PROJECTS = {
         "label": "ccECP",
         "offset": +0.15,
         "marker": "s",
-        "basis": "avdz",
+        "basis": "aug-cc-pvdz",
     },
 }
 
@@ -45,10 +45,10 @@ ELEMENTS = ["C", "N", "O", "F", "H"]
 def load_and_filter(csv_file: str) -> pd.DataFrame:
     df = pd.read_csv(csv_file)
 
-    # Filter for AE (aug-ano-vdz) and ccECP (avdz)
+    # Filter for AE (aug-ano-vdz) and ccECP (aug-cc-pvdz)
     mask = (
-        ((df["projectname"] == "heat_ae_default") & (df["basis_short"] == "aug-ano-vdz")) |
-        ((df["projectname"] == "heat_ccecp_default") & (df["basis_short"] == "avdz"))
+        ((df["projectname"] == "heat_ae_default") & (df["basis"] == "aug-ano-vdz")) |
+        ((df["projectname"] == "heat_ccecp_default") & (df["basis"] == "aug-cc-pvdz"))
     )
     df = df[mask].copy()
 
@@ -92,7 +92,7 @@ def panel_ee_depth(ax, df: pd.DataFrame):
     ax.set_xticks(x_base)
     ax.set_xticklabels(mol_labels, rotation=45, ha="right", fontsize=8)
     ax.set_ylabel("ee_depth (a.u.)")
-    ax.set_title("(a) e–e depths per system (AE: aug-ano-vdz, ccECP: avdz)")
+    ax.set_title("(a) e–e depths per system (AE: aug-ano-vdz, ccECP: aug-cc-pvdz)")
     ax.legend(frameon=False)
     ax.grid(True, linestyle=":", alpha=0.4)
 
@@ -199,7 +199,7 @@ def panel_en_depth(ax, df: pd.DataFrame):
     """Subplot (b): e–n depths per atom (eX_depth)."""
     _scatter_atom_depths(ax, df, value_type="e", add_legend=True)
     ax.set_ylabel("e–n depth (a.u.)")
-    ax.set_title("(b) e–n depths per atom (AE: aug-ano-vdz, ccECP: avdz)")
+    ax.set_title("(b) e–n depths per atom (AE: aug-ano-vdz, ccECP: aug-cc-pvdz)")
 
 
 def panel_een_depth(ax, df: pd.DataFrame):
@@ -210,14 +210,14 @@ def panel_een_depth(ax, df: pd.DataFrame):
     """
     _scatter_atom_depths(ax, df, value_type="ee", add_legend=False)
     ax.set_ylabel("een-depth (a.u.)")
-    ax.set_title("(c) een-depths per atom (AE: aug-ano-vdz, ccECP: avdz)")
+    ax.set_title("(c) een-depths per atom (AE: aug-ano-vdz, ccECP: aug-cc-pvdz)")
 
 
 def panel_sum_depth(ax, df: pd.DataFrame):
     """Subplot (d): sum depths per atom: eX_depth + eeX_depth."""
     _scatter_atom_depths(ax, df, value_type="sum", add_legend=False)
     ax.set_ylabel("sum depth (a.u.)")
-    ax.set_title("(d) sum of depths per atom (AE: aug-ano-vdz, ccECP: avdz)")
+    ax.set_title("(d) sum of depths per atom (AE: aug-ano-vdz, ccECP: aug-cc-pvdz)")
 
 
 def main():
@@ -236,7 +236,7 @@ def main():
     df = load_and_filter(args.csv_file)
     if df.empty:
         raise SystemExit(
-            "No avdz rows with projectname in {heat_ae_default, heat_ccecp_default}."
+            "No aug-cc-pvdz rows with projectname in {heat_ae_default, heat_ccecp_default}."
         )
 
     fig, axes = plt.subplots(2, 2, figsize=(14, 10))

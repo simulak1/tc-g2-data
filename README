@@ -11,6 +11,7 @@ data/
 figures/
 tools/
 main.tex
+figures.tex
 todo_list.tex
 Makefile
 ```
@@ -24,46 +25,53 @@ Required columns:
 * `project`
 * `core` (`AE`, `eCEPP`, `ccECP`)
 * `molecule`
-* `basis_short`
-* `ee_depth` (float or "free")
+* `basis`
+* `ee/en/een_fixed` (bool, True if it is fixed)
+* `ee/en/een_depth`
+* `ee/en/een_cutoff`
+* `spin_dependent_ee/en/een` (bool, True if it is spin dependent)
 * `energy_au`
 * `method` (`CCSD(T)`)
 
-Currently ignored but required:
+<!-- Currently ignored but required:
 
 * `en_depth`, `een_depth`
-* `spin_dependent_ee_cusp`, `spin_dependent_ee`, `spin_dependent_en`, `spin_dependent_een`
+* `spin_dependent_ee_cusp`, `spin_dependent_ee`, `spin_dependent_en`, `spin_dependent_een` -->
 
 ---
 
 ## 2. Plotting Tool (`tools/plot_depth_sweep.py`)
 
-Compute and plot:
+- Compute and plot:
 
-* ΔE_atom (ours – HEAT)
-* ΔE_form (ours – benchmark)
-* MAE across projects
-* One figure per `core`
+  * ΔE_atom (ours – HEAT)
+  * ΔE_form (ours – benchmark)
+  * MAE across projects
+  * One figure per `core`
 
-Run:
+  Run:
 
-```
-python tools/plot_depth_sweep.py data/heat_tc_energies.csv --unit mHa
-```
+  ```
+  python tools/plot_depth_sweep.py data/heat_tc_energies.csv --unit mHa
+  ```
 
-Save figures:
+  Save figures:
 
-```
-python tools/plot_depth_sweep.py data/heat_tc_energies.csv --unit mHa --save
-```
+  ```
+  python tools/plot_depth_sweep.py data/heat_tc_energies.csv --unit mHa --save
+  ```
 
-Generated files:
+  Generated files:
 
-```
-figures/depth_sweep_AE.png
-figures/depth_sweep_eCEPP.png
-figures/depth_sweep_ccECP.png
-```
+  ```
+  figures/depth_sweep_AE.png
+  figures/depth_sweep_eCEPP.png
+  figures/depth_sweep_ccECP.png
+  ```
+- Plot free depth of AE and ECP
+  ```
+  python3 tools/plot_free_depths.py data/heat_tc_energies.csv -o figures/free_depths.png
+  ```
 
 ---
 

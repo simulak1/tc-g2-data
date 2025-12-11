@@ -98,7 +98,7 @@ class CCRecord:
     project: str          # from 'projectname'
     core: str             # 'eCEPP', 'ccECP', 'AE', ...
     molecule: str
-    basis_short: str
+    basis: str
     method: str
     energy_au: float
     depth: float | None   # from 'ee_depth' (numeric) or None for 'free'
@@ -199,7 +199,7 @@ def read_ccsd_csv(path: Path) -> List[CCRecord]:
     Read the CSV format with columns like:
 
         projectname, ee_depth, en_depth, een_depth,
-        molecule, core, basis_short, method, energy_au,
+        molecule, core, basis, method, energy_au,
         spin_dependent_ee_cusp, spin_dependent_ee,
         spin_dependent_en, spin_dependent_een
 
@@ -224,7 +224,7 @@ def read_ccsd_csv(path: Path) -> List[CCRecord]:
                 project=row["projectname"],
                 core=core,
                 molecule=row["molecule"],
-                basis_short=row["basis_short"],
+                basis=row["basis"],
                 method=row["method"],
                 energy_au=float(row["energy_au"]),
                 depth=depth,
@@ -264,20 +264,20 @@ def parse_reaction(reaction: str) -> Tuple[Dict[str, int], Dict[str, int]]:
 
 def build_energy_index(
     records: List[CCRecord],
-    basis_short: str | None = None,
+    basis: str | None = None,
 ) -> tuple[Dict[Tuple[str, str], float], Dict[str, float | None]]:
     """
     Build:
       energies[(project, molecule)] = energy_au
       project_depths[project] = depth (float or None)
 
-    If basis_short is not None, filter to that basis.
+    If basis is not None, filter to that basis.
     """
     energies: Dict[Tuple[str, str], float] = {}
     project_depths: Dict[str, float | None] = {}
 
     for rec in records:
-        if basis_short is not None and rec.basis_short != basis_short:
+        if basis is not None and rec.basis != basis:
             continue
 
         key = (rec.project, rec.molecule)
