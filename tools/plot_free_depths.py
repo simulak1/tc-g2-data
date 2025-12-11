@@ -29,11 +29,13 @@ PROJECTS = {
         "label": "AE",
         "offset": -0.15,
         "marker": "o",
+        "basis": "aug-ano-vdz",
     },
     "heat_ccecp_default": {
         "label": "ccECP",
         "offset": +0.15,
         "marker": "s",
+        "basis": "avdz",
     },
 }
 
@@ -43,13 +45,14 @@ ELEMENTS = ["C", "N", "O", "F", "H"]
 def load_and_filter(csv_file: str) -> pd.DataFrame:
     df = pd.read_csv(csv_file)
 
-    # Keep only AE / ccECP + avdz
-    df = df[
-        (df["projectname"].isin(PROJECTS.keys())) &
-        (df["basis_short"] == "avdz")
-    ].copy()
+    # Filter for AE (aug-ano-vdz) and ccECP (avdz)
+    mask = (
+        ((df["projectname"] == "heat_ae_default") & (df["basis_short"] == "aug-ano-vdz")) |
+        ((df["projectname"] == "heat_ccecp_default") & (df["basis_short"] == "avdz"))
+    )
+    df = df[mask].copy()
 
-    # With avdz-only, molecule label can just be the molecule name
+    # Molecule label can just be the molecule name
     df["mol_label"] = df["molecule"].astype(str)
     return df
 
@@ -89,7 +92,7 @@ def panel_ee_depth(ax, df: pd.DataFrame):
     ax.set_xticks(x_base)
     ax.set_xticklabels(mol_labels, rotation=45, ha="right", fontsize=8)
     ax.set_ylabel("ee_depth (a.u.)")
-    ax.set_title("(a) e–e depths per system (avdz)")
+    ax.set_title("(a) e–e depths per system (AE: aug-ano-vdz, ccECP: avdz)")
     ax.legend(frameon=False)
     ax.grid(True, linestyle=":", alpha=0.4)
 
@@ -139,7 +142,7 @@ def _scatter_atom_depths(ax, df: pd.DataFrame, value_type: str, add_legend: bool
                     val = val_2e if pd.notna(val_2e) else 0.0
                     
                     if pd.notna(val_e):
-                        val += val_e
+                        val += 2.*val_e
                     if pd.notna(val_ee):
                         val += val_ee
                     if pd.isna(val_e) and pd.isna(val_ee):
@@ -196,7 +199,7 @@ def panel_en_depth(ax, df: pd.DataFrame):
     """Subplot (b): e–n depths per atom (eX_depth)."""
     _scatter_atom_depths(ax, df, value_type="e", add_legend=True)
     ax.set_ylabel("e–n depth (a.u.)")
-    ax.set_title("(b) e–n depths per atom (avdz)")
+    ax.set_title("(b) e–n depths per atom (AE: aug-ano-vdz, ccECP: avdz)")
 
 
 def panel_een_depth(ax, df: pd.DataFrame):
@@ -207,14 +210,14 @@ def panel_een_depth(ax, df: pd.DataFrame):
     """
     _scatter_atom_depths(ax, df, value_type="ee", add_legend=False)
     ax.set_ylabel("een-depth (a.u.)")
-    ax.set_title("(c) een-depths per atom (avdz)")
+    ax.set_title("(c) een-depths per atom (AE: aug-ano-vdz, ccECP: avdz)")
 
 
 def panel_sum_depth(ax, df: pd.DataFrame):
     """Subplot (d): sum depths per atom: eX_depth + eeX_depth."""
     _scatter_atom_depths(ax, df, value_type="sum", add_legend=False)
     ax.set_ylabel("sum depth (a.u.)")
-    ax.set_title("(d) sum of depths per atom (avdz)")
+    ax.set_title("(d) sum of depths per atom (AE: aug-ano-vdz, ccECP: avdz)")
 
 
 def main():

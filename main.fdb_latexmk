@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1765377854 "/home/simula/Desktop/tcjastrowfitting/main.tex" "/home/simula/Desktop/tcjastrowfitting/main.pdf" "main" 1765377857
+["pdflatex"] 1765443250 "/home/simula/Desktop/tcjastrowfitting/main.tex" "/home/simula/Desktop/tcjastrowfitting/main.pdf" "main" 1765443253
   "/etc/texmf/web2c/texmf.cnf" 1617974667 40935 950c859ef6aa64cd9f8caa18792b2c7d ""
-  "/home/simula/Desktop/tcjastrowfitting/main.aux" 1765377857 1591 f296b49077ba3656dc214e48c83cbfa6 ""
+  "/home/simula/Desktop/tcjastrowfitting/main.aux" 1765443253 1591 f296b49077ba3656dc214e48c83cbfa6 ""
   "/home/simula/Desktop/tcjastrowfitting/main.tex" 1764775936 290 4082e2ae2964aef62255e0253cd92760 ""
   "/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -59,15 +59,15 @@
   "figures.tex" 1765377851 1251 e6a325874ccbaf7ed65318ad53e017a8 ""
   "figures/Free_floating_depths_AE.png" 1764769877 104199 7b775fb2312924777581f8541307a630 ""
   "figures/Free_floating_depths_ECP.png" 1764769877 59936 cf8dd826c7b81d5bb95ee76f193dde70 ""
-  "figures/depth_sweep_ccECP.png" 1765377727 1219508 6077fefd48d5a1b98ae28fa59751d823 ""
-  "figures/depth_sweep_eCEPP.png" 1765377728 1234064 3411f3b6bb44d3d23a1b79aa3c008b36 ""
-  "figures/free_depths.png" 1765377731 549635 0511bd2924c7970fe38cc253e994cf29 ""
-  "main.aux" 1765377857 1591 f296b49077ba3656dc214e48c83cbfa6 "pdflatex"
+  "figures/depth_sweep_ccECP.png" 1765443246 1219508 6077fefd48d5a1b98ae28fa59751d823 ""
+  "figures/depth_sweep_eCEPP.png" 1765443247 1234064 3411f3b6bb44d3d23a1b79aa3c008b36 ""
+  "figures/free_depths.png" 1765443250 578616 06b982b2e986f15be979970ed988f193 ""
+  "main.aux" 1765443253 1591 f296b49077ba3656dc214e48c83cbfa6 "pdflatex"
   "main.tex" 1764775936 290 4082e2ae2964aef62255e0253cd92760 ""
   "todo_list.tex" 1764769877 1970 21cd7daefd72b5bd27336aa7d527478a ""
   (generated)
-  "/home/simula/Desktop/tcjastrowfitting/main.pdf"
+  "main.aux"
   "main.log"
   "/home/simula/Desktop/tcjastrowfitting/main.log"
-  "main.aux"
+  "/home/simula/Desktop/tcjastrowfitting/main.pdf"
   "main.pdf"
