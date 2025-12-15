@@ -26,6 +26,21 @@
       ],
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Python: Analyze cutoff/order sweep (5 figures)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/tools/plot_cutoff_sweep.py",
+      "args": [
+        "${workspaceFolder}/data/energies_vs_order_cutoff.csv",
+        "--metric", "mean",
+        "--worstq", "1.0",
+        "--topk", "5"
+        // "--outdir", "figures"
+      ],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
     }
   ]
 }
