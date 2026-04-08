@@ -1,0 +1,14 @@
+## Setup
+
+Create a Python virtual environment and install dependencies:
+
+    python3 -m venv .venv
+    .venv/bin/pip install -r requirements.txt
+
+The Makefile expects `.venv` to exist before running figure generation scripts.
+
+## Usage
+
+    make figures   # run all figure generation scripts
+    make           # figures + compile main.pdf
+    make clean     # remove LaTeX build artifacts
