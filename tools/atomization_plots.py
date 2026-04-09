@@ -88,6 +88,7 @@ def _xtc_col_suffix(basis: str, qz_corr: bool) -> str:
 
 
 def plot_atomization_comparison(merged_df: pd.DataFrame, output_path: Path = None,
+                                png_path: Path = None,
                                 basis: str = 'avtz', qz_corr: bool = False,
                                 show_f12: bool = False):
     """
@@ -238,12 +239,15 @@ def plot_atomization_comparison(merged_df: pd.DataFrame, output_path: Path = Non
 
     if output_path:
         fig.write_html(output_path)
-        print(f"Saved interactive plot to {output_path}")
+        png_out = png_path or output_path.with_suffix('.png')
+        fig.write_image(png_out, width=1600, height=800, scale=2)
+        print(f"Saved plot to {output_path} / {png_out}")
 
     return fig
 
 
 def plot_method_discrepancy_shci_pbe(merged_df: pd.DataFrame, output_path: Path = None,
+                                     png_path: Path = None,
                                      basis: str = 'avtz', qz_corr: bool = False,
                                      show_f12: bool = False):
     """
@@ -395,7 +399,9 @@ def plot_method_discrepancy_shci_pbe(merged_df: pd.DataFrame, output_path: Path 
 
     if output_path:
         fig.write_html(output_path)
-        print(f"Saved method discrepancy (vs SHCI+PBE+CV) plot to {output_path}")
+        png_out = png_path or output_path.with_suffix('.png')
+        fig.write_image(png_out, width=1600, height=600, scale=2)
+        print(f"Saved plot to {output_path} / {png_out}")
 
     return fig
 
@@ -525,13 +531,233 @@ def print_detailed_table(merged_df: pd.DataFrame):
     print("-"*100)
 
 
+def _collect_shci_pbe_summary(merged_df: pd.DataFrame, show_f12: bool = False):
+    """Collect summary statistics of De errors vs SHCI+PBE+CV reference.
+
+    Returns list of dicts with keys: method, basis, family, qz_corr, n, MAE, RMSE, MaxE, MSE.
+    """
+    if 'De_shci_pbe' not in merged_df.columns:
+        return []
+
+    df = merged_df[merged_df['De_shci_pbe'].notna()].copy()
+    ref = df['De_shci_pbe'] + df['CV']  # SHCI+PBE+CV
+
+    rows = []
+
+    def _add(name, family, basis, qz_corr, dev):
+        rows.append({
+            'method': name, 'family': family, 'basis': basis, 'qz_corr': qz_corr,
+            'n': len(dev), 'MAE': np.abs(dev).mean(), 'RMSE': np.sqrt((dev**2).mean()),
+            'MaxE': dev.abs().max(), 'MSE': dev.mean(),
+        })
+
+    # SHCI CBS + CV
+    dev = (df['De_shci_ref'] + df['CV']) - ref
+    _add('SHCI CBS+CV', 'SHCI', 'CBS', False, dev)
+
+    # F12 CBS + CV
+    if show_f12 and 'De_f12' in df.columns:
+        mask = df['De_f12'].notna()
+        dev = (df.loc[mask, 'De_f12'] + df.loc[mask, 'CV']) - ref[mask]
+        _add('F12 CBS+CV', 'F12', 'CBS', False, dev)
+
+    # xTC methods
+    all_sfx = ['avdz', 'avtz', 'avqz', 'pvdz', 'pvtz', 'pvqz',
+               'avdz_QZ_corr', 'avtz_QZ_corr', 'pvdz_QZ_corr', 'pvtz_QZ_corr']
+    for sfx in all_sfx:
+        qz = sfx.endswith('_QZ_corr')
+        raw_basis = sfx.replace('_QZ_corr', '') if qz else sfx
+        for slug, label, _, _ in XTC_METHOD_DEFS:
+            de_col = f'De_{slug}_{sfx}'
+            if de_col in df.columns and df[de_col].notna().any():
+                mask = df[de_col].notna()
+                dev = df.loc[mask, de_col] - ref[mask]
+                _add(f'{label}/{sfx}', label, raw_basis, qz, dev)
+
+    # CCSDT (Molpro) + CV
+    for basis in ['2z', '3z', '4z', '5z']:
+        de_col = f'De_ccsdt_{basis}'
+        if de_col in df.columns and df[de_col].notna().any():
+            mask = df[de_col].notna()
+            dev = (df.loc[mask, de_col] + df.loc[mask, 'CV']) - ref[mask]
+            _add(f'CCSD(T)+CV/{basis}', 'CCSD(T)', basis, False, dev)
+
+    return rows
+
+
+def _collect_experiment_summary(merged_df: pd.DataFrame, show_f12: bool = False):
+    """Collect summary statistics of D0 errors vs Experiment.
+
+    Returns list of dicts with keys: method, basis, family, qz_corr, n, MAE, RMSE, MaxE, MSE.
+    """
+    rows = []
+
+    def _add(name, family, basis, qz_corr, dev):
+        rows.append({
+            'method': name, 'family': family, 'basis': basis, 'qz_corr': qz_corr,
+            'n': len(dev), 'MAE': np.abs(dev).mean(), 'RMSE': np.sqrt((dev**2).mean()),
+            'MaxE': dev.abs().max(), 'MSE': dev.mean(),
+        })
+
+    # SHCI CBS
+    dev = merged_df['D0_shci_ref'] - merged_df['experiment']
+    _add('SHCI CBS', 'SHCI', 'CBS', False, dev)
+
+    # F12 CBS
+    if show_f12 and 'D0_f12' in merged_df.columns:
+        mask = merged_df['D0_f12'].notna()
+        dev = merged_df.loc[mask, 'D0_f12'] - merged_df.loc[mask, 'experiment']
+        _add('F12 CBS', 'F12', 'CBS', False, dev)
+
+    # SHCI+PBE CBS
+    if 'D0_shci_pbe' in merged_df.columns:
+        mask = merged_df['D0_shci_pbe'].notna()
+        dev = merged_df.loc[mask, 'D0_shci_pbe'] - merged_df.loc[mask, 'experiment']
+        _add('SHCI+PBE CBS', 'SHCI+PBE', 'CBS', False, dev)
+
+    # xTC methods
+    for sfx in ['avdz', 'avtz', 'avqz', 'pvdz', 'pvtz', 'pvqz',
+                'avdz_QZ_corr', 'avtz_QZ_corr', 'pvdz_QZ_corr', 'pvtz_QZ_corr']:
+        qz = sfx.endswith('_QZ_corr')
+        raw_basis = sfx.replace('_QZ_corr', '') if qz else sfx
+        for slug, label, _, _ in XTC_METHOD_DEFS:
+            d0_col = f'D0_{slug}_{sfx}'
+            if d0_col in merged_df.columns and merged_df[d0_col].notna().any():
+                mask = merged_df[d0_col].notna()
+                dev = merged_df.loc[mask, d0_col] - merged_df.loc[mask, 'experiment']
+                _add(f'{label}/{sfx}', label, raw_basis, qz, dev)
+
+    # CCSDT (Molpro)
+    for basis in ['2z', '3z', '4z', '5z']:
+        d0_col = f'D0_ccsdt_{basis}'
+        if d0_col in merged_df.columns and merged_df[d0_col].notna().any():
+            mask = merged_df[d0_col].notna()
+            dev = merged_df.loc[mask, d0_col] - merged_df.loc[mask, 'experiment']
+            _add(f'CCSD(T)/{basis}', 'CCSD(T)', basis, False, dev)
+
+    return rows
+
+
+def save_summary_csv(merged_df: pd.DataFrame, output_dir: Path, show_f12: bool = False):
+    """Save summary statistics to CSV files for downstream convergence plots."""
+    rows_pbe = _collect_shci_pbe_summary(merged_df, show_f12)
+    if rows_pbe:
+        df_pbe = pd.DataFrame(rows_pbe)
+        path = output_dir / 'summary_vs_shci_pbe.csv'
+        df_pbe.to_csv(path, index=False)
+        print(f"Saved {path}")
+
+
+def print_shci_pbe_summary_table(merged_df: pd.DataFrame, show_f12: bool = False):
+    """Print summary table of De errors vs SHCI+PBE+CV reference (MAE, RMSE, MaxE)."""
+    rows = _collect_shci_pbe_summary(merged_df, show_f12)
+    if not rows:
+        return
+
+    print("\n" + "="*80)
+    print("SUMMARY: Raw De vs SHCI+PBE+CV (kcal/mol)")
+    print("="*80)
+    print(f"{'Method':<35} {'n':>5} {'MAE':>10} {'RMSE':>10} {'MaxE':>10} {'MSE':>10}")
+    print("-"*80)
+
+    for r in rows:
+        print(f"{r['method']:<35} {r['n']:>5} {r['MAE']:>10.3f} {r['RMSE']:>10.3f} {r['MaxE']:>10.3f} {r['MSE']:>10.3f}")
+
+    print("="*80)
+
+
+def print_shci_pbe_detailed_table(merged_df: pd.DataFrame):
+    """Print per-molecule De discrepancy from SHCI+PBE+CV for each xTC method/basis."""
+    if 'De_shci_pbe' not in merged_df.columns:
+        return
+
+    df = merged_df[merged_df['De_shci_pbe'].notna()].copy()
+    ref = df['De_shci_pbe'] + df['CV']  # SHCI+PBE+CV
+
+    all_sfx = ['avdz', 'avtz', 'avqz', 'pvdz', 'pvtz', 'pvqz',
+               'avdz_QZ_corr', 'avtz_QZ_corr', 'pvdz_QZ_corr', 'pvtz_QZ_corr']
+
+    for sfx in all_sfx:
+        # Collect available method columns for this basis suffix
+        available = []
+        for slug, label, _, _ in XTC_METHOD_DEFS:
+            de_col = f'De_{slug}_{sfx}'
+            if de_col in df.columns and df[de_col].notna().any():
+                available.append((slug, label, de_col))
+
+        if not available:
+            continue
+
+        # Build header
+        method_labels = [label for _, label, _ in available]
+        header_methods = ''.join(f'{lbl:>14}' for lbl in method_labels)
+        disc_headers = ''.join(f'{"disc":>10}' for _ in method_labels)
+
+        print(f"\n{'='*120}")
+        print(f"Detailed De vs SHCI+PBE+CV — basis: {sfx}")
+        print(f"{'='*120}")
+        print(f"{'Molecule':<14}{'SHCI+PBE+CV':>14}{header_methods}{disc_headers}")
+        print("-"*120)
+
+        for idx, row in df.iterrows():
+            line = f"{row['formula']:<14}{ref[idx]:>14.2f}"
+            disc_line = ""
+            for slug, label, de_col in available:
+                val = row[de_col]
+                if pd.notna(val):
+                    line += f"{val:>14.2f}"
+                    disc_line += f"{val - ref[idx]:>10.2f}"
+                else:
+                    line += f"{'---':>14}"
+                    disc_line += f"{'---':>10}"
+            print(line + disc_line)
+
+        # Print MAE/RMSE/MaxE footer
+        print("-"*120)
+        footer_ref = f"{'MAE/RMSE/MaxE':<14}{' ':>14}"
+        footer_disc = ""
+        for slug, label, de_col in available:
+            mask = df[de_col].notna()
+            dev = df.loc[mask, de_col] - ref[mask]
+            mae = np.abs(dev).mean()
+            rmse = np.sqrt((dev**2).mean())
+            maxe = dev.abs().max()
+            footer_ref += f"{' ':>14}"
+            footer_disc += f"{mae:>10.2f}"
+        print(footer_ref + footer_disc)
+
+        footer_ref2 = f"{' ':<14}{' ':>14}"
+        footer_disc2 = ""
+        for slug, label, de_col in available:
+            mask = df[de_col].notna()
+            dev = df.loc[mask, de_col] - ref[mask]
+            rmse = np.sqrt((dev**2).mean())
+            footer_ref2 += f"{' ':>14}"
+            footer_disc2 += f"{rmse:>10.2f}"
+        print(footer_ref2 + footer_disc2 + "  (RMSE)")
+
+        footer_ref3 = f"{' ':<14}{' ':>14}"
+        footer_disc3 = ""
+        for slug, label, de_col in available:
+            mask = df[de_col].notna()
+            dev = df.loc[mask, de_col] - ref[mask]
+            maxe = dev.abs().max()
+            footer_ref3 += f"{' ':>14}"
+            footer_disc3 += f"{maxe:>10.2f}"
+        print(footer_ref3 + footer_disc3 + "  (MaxE)")
+
+        print("="*120)
+
+
 def main():
     parser = argparse.ArgumentParser(description='Plot atomization energy comparison data')
     parser.add_argument('csv_file', type=Path, nargs='?', 
                         default=Path(__file__).parent / 'atomization_comparison.csv',
                         help='Path to atomization_comparison.csv')
     parser.add_argument('--output-dir', type=Path, default=None,
-                        help='Output directory for plots (default: same as CSV file)')
+                        help='Output directory for PNG plots (default: same as CSV file)')
+    parser.add_argument('--html-output-dir', type=Path, default=None,
+                        help='Output directory for HTML plots (default: same as --output-dir)')
     parser.add_argument('--no-show', action='store_true',
                         help='Do not display plots interactively')
     parser.add_argument('--stats-only', action='store_true',
@@ -545,6 +771,9 @@ def main():
 
     csv_path = args.csv_file
     output_dir = args.output_dir or csv_path.parent
+    html_output_dir = args.html_output_dir or output_dir
+    output_dir.mkdir(parents=True, exist_ok=True)
+    html_output_dir.mkdir(parents=True, exist_ok=True)
     basis = args.basis
 
     print(f"Loading data from {csv_path}...")
@@ -552,10 +781,10 @@ def main():
     merged_df = load_data(csv_path)
     print(f"Loaded {len(merged_df)} molecules")
 
-    # Print statistics
-    print_statistics(merged_df, show_f12=args.f12)
-    print_summary_table(merged_df, show_f12=args.f12)
-    print_detailed_table(merged_df)
+    # Print statistics (SHCI+PBE reference only)
+    print_shci_pbe_summary_table(merged_df, show_f12=args.f12)
+    print_shci_pbe_detailed_table(merged_df)
+    save_summary_csv(merged_df, csv_path.parent, show_f12=args.f12)
 
     if args.stats_only:
         return
@@ -564,21 +793,29 @@ def main():
     print("\nGenerating plots...")
 
     fig1 = plot_atomization_comparison(
-        merged_df, output_dir / f'atomization_comparison_{basis}.html', basis=basis,
-        show_f12=args.f12)
+        merged_df,
+        output_path=html_output_dir / f'atomization_comparison_{basis}.html',
+        png_path=output_dir / f'atomization_comparison_{basis}.png',
+        basis=basis, show_f12=args.f12)
     fig5 = plot_method_discrepancy_shci_pbe(
-        merged_df, output_dir / f'atomization_method_discrepancy_shci_pbe_{basis}.html', basis=basis,
-        show_f12=args.f12)
+        merged_df,
+        output_path=html_output_dir / f'atomization_method_discrepancy_shci_pbe_{basis}.html',
+        png_path=output_dir / f'atomization_method_discrepancy_shci_pbe_{basis}.png',
+        basis=basis, show_f12=args.f12)
 
     figs = [fig1, fig5]
 
     # For avdz/avtz, also generate QZ-HF-corrected plots
     if basis in ('avdz', 'avtz'):
         fig1q = plot_atomization_comparison(
-            merged_df, output_dir / f'atomization_comparison_{basis}_QZ_corr.html',
+            merged_df,
+            output_path=html_output_dir / f'atomization_comparison_{basis}_QZ_corr.html',
+            png_path=output_dir / f'atomization_comparison_{basis}_QZ_corr.png',
             basis=basis, qz_corr=True, show_f12=args.f12)
         fig5q = plot_method_discrepancy_shci_pbe(
-            merged_df, output_dir / f'atomization_method_discrepancy_shci_pbe_{basis}_QZ_corr.html',
+            merged_df,
+            output_path=html_output_dir / f'atomization_method_discrepancy_shci_pbe_{basis}_QZ_corr.html',
+            png_path=output_dir / f'atomization_method_discrepancy_shci_pbe_{basis}_QZ_corr.png',
             basis=basis, qz_corr=True, show_f12=args.f12)
         figs.extend([fig1q, fig5q])
 
@@ -590,4 +827,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-.

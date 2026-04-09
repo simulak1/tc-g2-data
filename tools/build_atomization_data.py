@@ -538,7 +538,7 @@ def main():
     args = parser.parse_args()
     
     data_dir = args.data_dir
-    output_csv = args.output or (data_dir / 'atomization_comparison.csv')
+    output_csv = args.output or (Path(__file__).parent.parent / 'data' / 'atomization_comparison.csv')
     ccsd_csv_path = args.ccsd_csv or (Path(__file__).parent.parent / 'data' / 'ccsd_energies.csv')
     
     # Load data

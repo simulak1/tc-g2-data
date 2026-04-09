@@ -1,1 +1,6 @@
 .venv/
+data/atomization_comparison.csv
+data/summary_vs_*.csv
+figures/*.png
+figures/*.html
+# HTML in docs/figures/ IS tracked (served via GitHub Pages)
