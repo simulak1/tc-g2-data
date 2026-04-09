@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/TeX Live for SUSE Linux) (preloaded format=pdflatex 2025.3.14)  9 APR 2026 12:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/TeX Live for SUSE Linux) (preloaded format=pdflatex 2025.3.14)  9 APR 2026 13:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -328,41 +328,182 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 20.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 20.
-<figures//convergence_vs_shci_pbe.png, id=9, 2409.0pt x 1003.75pt>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 28.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 28.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 28.
+
+! Undefined control sequence.
+l.29   M = S_{11}^{-1/2} S_{12} C^{\text
+                                        {virt}}
+? 
+! Interruption.
+<to be read again> 
+                   {
+l.29   M = S_{11}^{-1/2} S_{12} C^{\text{
+                                         virt}}
+? 
+! Undefined control sequence.
+l.30   \qquad [n_{\text
+                       {small}} \times n_{\text{large,virt}}]
+? 
+! Undefined control sequence.
+l.30   \qquad [n_{\text{small}} \times n_{\text
+                                               {large,virt}}]
+? 
+! Undefined control sequence.
+l.34 and $C^{\text
+                  {virt}}$ collects the large-basis virtual MO coefficients.
+? 
+! Undefined control sequence.
+l.42   U\ [n_{\text
+                   {small}}\times n_{\text{small}}],\;
+? 
+! Undefined control sequence.
+l.42   U\ [n_{\text{small}}\times n_{\text
+                                          {small}}],\;
+? 
+! Undefined control sequence.
+l.43   \Sigma\ [n_{\text
+                        {small}}\times n_{\text{small}}],\;
+? 
+! Undefined control sequence.
+l.43   \Sigma\ [n_{\text{small}}\times n_{\text
+                                               {small}}],\;
+? 
+! Undefined control sequence.
+l.44   V\ [n_{\text
+                   {large,virt}}\times n_{\text{small}}]
+? 
+! Undefined control sequence.
+l.44   V\ [n_{\text{large,virt}}\times n_{\text
+                                               {small}}]
+? 
+! Undefined control sequence.
+l.48 ... the two subspaces. Dropping the $n_{\text
+                                                  {occ}}$ columns of $V$
+? 
+! Undefined control sequence.
+l.50 $n_{\text
+              {sel}}=n_{\text{small}}-n_{\text{occ}}$ selected virtuals
+? 
+! Undefined control sequence.
+l.50 $n_{\text{sel}}=n_{\text
+                             {small}}-n_{\text{occ}}$ selected virtuals
+? 
+! Undefined control sequence.
+l.50 $n_{\text{sel}}=n_{\text{small}}-n_{\text
+                                              {occ}}$ selected virtuals
+? 
+! Undefined control sequence.
+l.53   C^{\text
+               {sel}} = C^{\text{virt}} V_{\text{kept}}
+? 
+! Undefined control sequence.
+l.53   C^{\text{sel}} = C^{\text
+                                {virt}} V_{\text{kept}}
+? 
+! Undefined control sequence.
+l.53   C^{\text{sel}} = C^{\text{virt}} V_{\text
+                                                {kept}}
+? 
+! Undefined control sequence.
+l.54   \qquad [n_{\text
+                       {large,AO}}\times n_{\text{sel}}]
+? 
+! Undefined control sequence.
+l.54   \qquad [n_{\text{large,AO}}\times n_{\text
+                                                 {sel}}]
+? 
+! Undefined control sequence.
+l.61   F^{\text
+               {sel}} = V_{\text{kept}}^{\top}\,\mathrm{diag}(\varepsilon_a)...
+
+? 
+! Undefined control sequence.
+l.61   F^{\text{sel}} = V_{\text
+                                {kept}}^{\top}\,\mathrm{diag}(\varepsilon_a)...
+
+? 
+! Undefined control sequence.
+l.61 ...p}\,\mathrm{diag}(\varepsilon_a)\,V_{\text
+                                                  {kept}}
+? 
+! Undefined control sequence.
+l.62   \qquad [n_{\text
+                       {sel}}\times n_{\text{sel}}]
+? 
+! Undefined control sequence.
+l.62   \qquad [n_{\text{sel}}\times n_{\text
+                                            {sel}}]
+? 
+! Undefined control sequence.
+l.65 non-diagonal. Diagonalizing $F^{\text
+                                          {sel}} = W\tilde\Lambda W^{\top}$ ...
+
+? 
+! Undefined control sequence.
+l.69   C^{\text
+               {final}} = C^{\text{virt}}\,V_{\text{kept}}\,W
+? 
+! Undefined control sequence.
+l.69   C^{\text{final}} = C^{\text
+                                  {virt}}\,V_{\text{kept}}\,W
+? 
+! Undefined control sequence.
+l.69 ...{\text{final}} = C^{\text{virt}}\,V_{\text
+                                                  {kept}}\,W
+? 
+! Undefined control sequence.
+l.70   \qquad [n_{\text
+                       {large,AO}}\times n_{\text{sel}}]
+? 
+! Undefined control sequence.
+l.70   \qquad [n_{\text{large,AO}}\times n_{\text
+                                                 {sel}}]
+? 
+<figures//convergence_vs_shci_pbe.png, id=13, 2409.0pt x 1003.75pt>
 File: figures//convergence_vs_shci_pbe.png Graphic file (type png)
 <use figures//convergence_vs_shci_pbe.png>
 Package pdftex.def Info: figures//convergence_vs_shci_pbe.png  used on input li
-ne 32.
+ne 89.
 (pdftex.def)             Requested size: 469.75502pt x 195.72281pt.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 37.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 37.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 37.
- (./main.bbl) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures//convergence_vs_
-shci_pbe.png>] (./main.aux)
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+(./tables/shci_pbe_summary.tex
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./main.bbl [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) [2 <./figures//convergenc
+e_vs_shci_pbe.png>] [3] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 754464A81A8999796A2DCCE75603C4DC;146.
+(rerunfilecheck)             Checksum: 1490CE6C8DA7363B87E12BFAF9A0279C;219.
  ) 
 Here is how much of TeX's memory you used:
- 8272 strings out of 480031
- 120991 string characters out of 5884516
- 423075 words of memory out of 5000000
- 25498 multiletter control sequences out of 15000+600000
- 408153 words of font info for 43 fonts, out of 8000000 for 9000
+ 8291 strings out of 480031
+ 121246 string characters out of 5884516
+ 434206 words of memory out of 5000000
+ 25503 multiletter control sequences out of 15000+600000
+ 408500 words of font info for 44 fonts, out of 8000000 for 9000
  475 hyphenation exceptions out of 8191
- 71i,5n,74p,449b,319s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,8n,74p,449b,441s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf
 /fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/public
-/amsfonts/cm/cmr12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.p
-fb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (1 page, 196377 bytes).
+/amsfonts/cm/cmmi8.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr12.p
+fb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf
+/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy8.pf
+b></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf
+/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (3 pages, 252052 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 500000)
- 14 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 89 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
+ 15 named destinations out of 1000 (max. 500000)
+ 22 words of extra memory for PDF output out of 10000 (max. 10000000)
 

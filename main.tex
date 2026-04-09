@@ -19,13 +19,70 @@
 \maketitle
 
 %% ============================================================
+\section{Theory}
+%% =================================================
+
+The selected virtual space is constructed by projecting the large-basis virtual
+MOs onto the small-basis AO space via
+%
+\begin{equation}
+  M = S_{11}^{-1/2} S_{12} C^{\text{virt}}
+  \qquad [n_{\text{small}} \times n_{\text{large,virt}}]
+\end{equation}
+%
+where $S_{11}$ and $S_{12}$ are the small-basis and cross-overlap matrices,
+and $C^{\text{virt}}$ collects the large-basis virtual MO coefficients.
+The elements $M_{\mu a} = \langle\tilde\varphi_\mu|\psi_a\rangle$ are overlaps
+between L\"{o}wdin-orthonormalized small AOs and $S_{22}$-orthonormal
+large-basis virtuals, so the thin SVD
+%
+\begin{equation}
+  M = U\Sigma V^{\top}
+  \qquad
+  U\ [n_{\text{small}}\times n_{\text{small}}],\;
+  \Sigma\ [n_{\text{small}}\times n_{\text{small}}],\;
+  V\ [n_{\text{large,virt}}\times n_{\text{small}}]
+\end{equation}
+%
+yields singular values $\sigma_k\leq 1$ that are exact cosines of the principal
+angles between the two subspaces. Dropping the $n_{\text{occ}}$ columns of $V$
+with near-zero $\sigma_k$ and projecting onto the AO basis gives the
+$n_{\text{sel}}=n_{\text{small}}-n_{\text{occ}}$ selected virtuals
+%
+\begin{equation}
+  C^{\text{sel}} = C^{\text{virt}} V_{\text{kept}}
+  \qquad [n_{\text{large,AO}}\times n_{\text{sel}}]
+\end{equation}
+%
+which are $S_{22}$-orthonormal by construction. The SVD rotation mixes
+canonical virtuals, rendering the projected Fock matrix
+%
+\begin{equation}
+  F^{\text{sel}} = V_{\text{kept}}^{\top}\,\mathrm{diag}(\varepsilon_a)\,V_{\text{kept}}
+  \qquad [n_{\text{sel}}\times n_{\text{sel}}]
+\end{equation}
+%
+non-diagonal. Diagonalizing $F^{\text{sel}} = W\tilde\Lambda W^{\top}$ yields
+the semicanonical orbitals
+%
+\begin{equation}
+  C^{\text{final}} = C^{\text{virt}}\,V_{\text{kept}}\,W
+  \qquad [n_{\text{large,AO}}\times n_{\text{sel}}]
+\end{equation}
+%
+satisfying $\langle\hat a_m|\hat F|\hat a_n\rangle = \tilde\varepsilon_m\delta_{mn}$,
+with orbital energies $\tilde\varepsilon_m$ entering the CCSD(T) denominators
+$D_{ij}^{ab} = \varepsilon_i + \varepsilon_j - \tilde\varepsilon_a - \tilde\varepsilon_b$.
+
+%% ============================================================
 \section{Atomization energies}
 %% ============================================================
 
 We compute atomization energies with several xTC method families and benchmark
-them against SHCI+PBE+CV reference values. Per-basis, per-molecule method
-discrepancies and the full basis set convergence of error metrics are hosted
-as interactive plotly figures~\cite{interactivefigs}.
+them against SHCI+PBE+CV reference values. All calculations employ
+effective core potentials (ECPs) for the third-row elements.
+Per-basis, per-molecule method discrepancies and the full basis set convergence
+of error metrics are hosted as interactive plotly figures~\cite{interactivefigs}.
 
 \begin{figure}[h]
   \centering
@@ -36,6 +93,8 @@ as interactive plotly figures~\cite{interactivefigs}.
     per-basis per-molecule breakdowns are available
     online~\cite{interactivefigs}.}
 \end{figure}
+
+\input{tables/shci_pbe_summary.tex}
 
 \bibliographystyle{plain}
 \bibliography{refs}

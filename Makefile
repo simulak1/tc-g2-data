@@ -1,6 +1,6 @@
-.PHONY: all figures clean
+.PHONY: all figures tables clean
 
-all: figures main.pdf
+all: figures tables main.pdf
 
 # --- environment check ---
 .venv:
@@ -20,8 +20,12 @@ figures: data/atomization_comparison.csv .venv
 	./scripts.sh/plot_ae_data.sh
 	./scripts.sh/plot_convergence.sh
 
+# --- tables ---
+tables: data/atomization_comparison.csv .venv
+	./scripts.sh/make_tables.sh
+
 # --- paper ---
-main.pdf: main.tex refs.bib figures
+main.pdf: main.tex refs.bib figures tables
 	latexmk -pdf -bibtex main.tex
 
 clean:
