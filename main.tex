@@ -23,6 +23,8 @@
 \section{Theory}
 %% =================================================
 
+The procedure described below is motivated by the reference energy correction scheme in TC theory [cite johannes], that states that the basis set error in correlation energy converges quickly with TC, while the errors in the reference energy (i.e., the Hartree-Fock energy) is untouched.  To avoid calculations in multiple basis sets and make the workflow more simple and practical, we solve the reference state in a large basis set, and then construct a virtual space with size equal to a lower-level basis. This keeps the reference accurate, while allowing us to perform the correlation calculation in a smaller virtual space that is more similar to the small basis set. 
+
 The selected virtual space is constructed by projecting the large-basis virtual
 MOs onto the small-basis AO space via
 %
