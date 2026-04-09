@@ -19,27 +19,26 @@
   <h1>TC Jastrow Fitting &mdash; Interactive Figures</h1>
   <p>Interactive plotly versions of the figures in the paper. Hover for values, zoom, toggle traces.</p>
 
-  <p class="supertitle">All data on this page are from calculations using effective core potentials (ECPs).</p>
+  <h2>ECP calculations</h2>
+  <p>All data in this section are from calculations using effective core potentials (ECPs).</p>
 
-  <h2>Timing</h2>
-
+  <h3>Timing</h3>
   <div class="note">
     <strong>Note:</strong> These timings are from an early implementation of the workflow in which
     the SVD projection step (step 00) was run separately before the TC integral construction (step 03 TCHInt).
     In the current all-electron workflow the SVD projection is performed internally within step 03 TCHInt.
     To compare with all-electron timings, add the <em>00 projection</em> time to the <em>03 TCHInt</em> time.
   </div>
-
   <ul>
-    <li><a href="figures/pipeline_waterfall.html">Pipeline wall time per system by basis (ECP)</a></li>
+    <li><a href="figures/pipeline_waterfall.html">Pipeline wall time per system by basis</a></li>
   </ul>
 
-  <h2>Basis set convergence</h2>
+  <h3>Basis set convergence</h3>
   <ul>
     <li><a href="figures/convergence_vs_shci_pbe.html">Convergence vs SHCI+PBE+CV</a></li>
   </ul>
 
-  <h2>Atomization energies by basis</h2>
+  <h3>Atomization energies by basis</h3>
   <ul>
     <li><b>avdz</b>: <a href="figures/atomization_method_discrepancy_shci_pbe_avdz.html">discrepancy vs SHCI+PBE+CV</a></li>
     <li><b>avtz</b>: <a href="figures/atomization_method_discrepancy_shci_pbe_avtz.html">discrepancy vs SHCI+PBE+CV</a></li>
