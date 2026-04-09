@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1775730477 "main.aux" "main.bbl" "main" 1775730478
+["bibtex main"] 1775731159 "main.aux" "main.bbl" "main" 1775731160
   "/usr/share/texmf/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1775730478 1362 83718b15caf2c463b9879e286b945f2e "pdflatex"
-  "refs.bib" 1775730245 1675 f16470a2f11e7b056c69cfbc0250b095 ""
+  "main.aux" 1775731160 1362 83718b15caf2c463b9879e286b945f2e "pdflatex"
+  "refs.bib" 1775731139 1309 1104a68ea6774522191295bb02e94923 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1775730477 "main.tex" "main.pdf" "main" 1775730478
+["pdflatex"] 1775731159 "main.tex" "main.pdf" "main" 1775731160
   "/etc/texmf/web2c/texmf.cnf" 1617974667 40935 950c859ef6aa64cd9f8caa18792b2c7d ""
   "/usr/share/texmf/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -74,13 +74,13 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1617974667 40935 950c859ef6aa64cd9f8caa18792b2c7d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1761029440 5103607 ae8d035eb49640d40d14b44ef6f070f5 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1741958352 2544835 c66b54ab9248c8d4b720b8e109ae6f8a ""
-  "figures//convergence_vs_shci_pbe.png" 1775728992 256736 af462fdbdd3f8f2922e3d5e02bbd8924 ""
-  "main.aux" 1775730478 1362 83718b15caf2c463b9879e286b945f2e "pdflatex"
-  "main.bbl" 1775730477 1450 5e5d6676d04c91bed7f3ac000b3a2121 "bibtex main"
-  "main.out" 1775730478 146 754464a81a8999796a2dcce75603c4dc "pdflatex"
+  "figures//convergence_vs_shci_pbe.png" 1775731111 256736 af462fdbdd3f8f2922e3d5e02bbd8924 ""
+  "main.aux" 1775731160 1362 83718b15caf2c463b9879e286b945f2e "pdflatex"
+  "main.bbl" 1775731159 1132 40052b6bbecc04a1992ec100b3a17214 "bibtex main"
+  "main.out" 1775731160 146 754464a81a8999796a2dcce75603c4dc "pdflatex"
   "main.tex" 1775730468 1380 3705eb0880eb8c5eea1357711fdd375f ""
   (generated)
+  "main.aux"
   "main.pdf"
   "main.out"
-  "main.aux"
   "main.log"

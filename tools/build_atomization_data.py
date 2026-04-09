@@ -167,14 +167,6 @@ METHOD_COLUMNS = {
     'md_xTC-FCIQMC': 'md_xtc_fciqmc',
 }
 
-# Non-md methods eligible for QZ HF correction
-NON_MD_METHOD_COLUMNS = {
-    'xTC-CCSD(T)': 'xtc_ccsdt',
-    'xTC-DC-CCSDT': 'xtc_dc_ccsdt',
-    'xTC-FCIQMC': 'xtc_fciqmc',
-}
-
-
 def load_f12_data():
     """Load F12 reference data and convert to DataFrame."""
     f12_df = pd.DataFrame(G2_97_ATOMIZATION)
@@ -260,107 +252,6 @@ def load_ccsd_data(ccsd_csv_path: Path, basis_short: str = 'avdz',
         results.append({
             'formula': our_formula,
             f'De_{col_slug}_{basis_short}': De_kcal,
-        })
-
-    return pd.DataFrame(results)
-
-
-def load_ccsd_data_qz_corrected(ccsd_csv_path: Path, basis_short: str,
-                                method_col: str, col_slug: str):
-    """
-    Load xTC energies and apply QZ HF correction to compute atomization energies.
-
-    For each system (atom or molecule):
-        E_corr = E_method(basis) - E_xTC_HF(basis) + E_xTC_HF(avqz)
-
-    Then De is computed from corrected energies as usual.
-
-    Args:
-        ccsd_csv_path: Path to ccsd_energies.csv
-        basis_short: Basis set tag to correct (e.g. 'avdz', 'avtz')
-        method_col: Method column name (e.g. 'xTC-CCSD(T)')
-        col_slug: Short slug for naming output column
-
-    Returns:
-        DataFrame with formula and De_{col_slug}_{basis_short}_QZ_corr column (kcal/mol)
-    """
-    full_df = pd.read_csv(ccsd_csv_path)
-
-    df_basis = full_df[full_df['basis_short'] == basis_short].copy()
-    df_qz = full_df[full_df['basis_short'] == 'avqz'].copy()
-
-    if len(df_basis) == 0 or len(df_qz) == 0:
-        return pd.DataFrame()
-
-    for col in [method_col, 'xTC-HF']:
-        if col in df_basis.columns:
-            df_basis[col] = pd.to_numeric(df_basis[col], errors='coerce')
-        if col in df_qz.columns:
-            df_qz[col] = pd.to_numeric(df_qz[col], errors='coerce')
-
-    if method_col not in df_basis.columns or 'xTC-HF' not in df_basis.columns:
-        return pd.DataFrame()
-
-    # Build lookup: molecule -> xTC-HF energy at avqz
-    hf_qz = {}
-    for _, row in df_qz.iterrows():
-        if pd.notna(row.get('xTC-HF')):
-            hf_qz[row['molecule']] = row['xTC-HF']
-
-    # Build corrected atomic energies
-    atoms = ['Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl']
-    atomic_energies_corr = {}
-    for _, row in df_basis.iterrows():
-        mol = row['molecule']
-        if mol not in atoms:
-            continue
-        e_method = row[method_col]
-        e_hf_basis = row['xTC-HF']
-        e_hf_qz = hf_qz.get(mol)
-        if pd.isna(e_method) or pd.isna(e_hf_basis) or e_hf_qz is None:
-            continue
-        atomic_energies_corr[mol] = e_method - e_hf_basis + e_hf_qz
-
-    # H atom: single electron, no correlation or HF correction
-    atomic_energies_corr['H'] = -0.5
-
-    # Compute corrected atomization energies
-    results = []
-    for _, row in df_basis.iterrows():
-        mol = row['molecule']
-        our_formula = CCSD_TO_FORMULA.get(mol)
-        if our_formula is None or our_formula not in FORMULA_TO_ATOMS:
-            continue
-
-        e_method = row[method_col]
-        e_hf_basis = row['xTC-HF']
-        e_hf_qz = hf_qz.get(mol)
-        if pd.isna(e_method) or pd.isna(e_hf_basis) or e_hf_qz is None:
-            continue
-
-        # Skip unphysical energies
-        if e_method > 0 or e_method < -1e8:
-            continue
-
-        e_corr = e_method - e_hf_basis + e_hf_qz
-
-        atoms_dict = FORMULA_TO_ATOMS[our_formula]
-        total_atomic = 0.0
-        missing = False
-        for atom, count in atoms_dict.items():
-            if atom not in atomic_energies_corr:
-                missing = True
-                break
-            total_atomic += count * atomic_energies_corr[atom]
-
-        if missing:
-            continue
-
-        De = total_atomic - e_corr
-        De_kcal = De * HA_TO_KCAL
-        results.append({
-            'formula': our_formula,
-            f'De_{col_slug}_{basis_short}_QZ_corr': De_kcal,
         })
 
     return pd.DataFrame(results)
@@ -488,19 +379,6 @@ def merge_with_corrections(reference_df: pd.DataFrame,
                     if de_col in merged.columns:
                         merged[d0_col] = merged[de_col] + merged['ZPE'] + merged['SR_SO'] + merged['CV']
 
-        # Load QZ-HF-corrected xTC atomization energies (non-md methods only)
-        for basis in ['avdz', 'avtz', 'pvdz', 'pvtz']:
-            for method_col, col_slug in NON_MD_METHOD_COLUMNS.items():
-                ccsd_df = load_ccsd_data_qz_corrected(
-                    ccsd_csv_path, basis,
-                    method_col=method_col, col_slug=col_slug)
-                if len(ccsd_df) > 0:
-                    merged = merged.merge(ccsd_df, on='formula', how='left')
-                    de_col = f'De_{col_slug}_{basis}_QZ_corr'
-                    d0_col = f'D0_{col_slug}_{basis}_QZ_corr'
-                    if de_col in merged.columns:
-                        merged[d0_col] = merged[de_col] + merged['ZPE'] + merged['SR_SO'] + merged['CV']
-    
     # Load and merge CCSDT atomization energies from molpro_energies.csv for different basis sets
     if data_dir is None:
         data_dir = Path(__file__).parent.parent / 'reference_data'

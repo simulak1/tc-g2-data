@@ -48,18 +48,15 @@ def _get_style(family):
 
 def plot_convergence(df: pd.DataFrame, reference_label: str, output_path: Path,
                      png_path: Path = None,
-                     metrics=('MAE', 'RMSE', 'MaxE'), qz_corr: bool = False):
+                     metrics=('MAE', 'RMSE', 'MaxE')):
     """
     Plot convergence of error metrics across basis sets.
 
     One subplot per metric (MAE, RMSE, MaxE), with lines for each method family.
     aug-cc-pV*Z and cc-pV*Z families on the same x-axis (cardinal number).
     """
-    # Filter by QZ correction flag
-    df = df[df['qz_corr'] == qz_corr].copy()
-
     if len(df) == 0:
-        print(f"No data for qz_corr={qz_corr}, skipping.")
+        print("Empty summary frame, skipping.")
         return None
 
     n_metrics = len(metrics)
@@ -122,9 +119,8 @@ def plot_convergence(df: pd.DataFrame, reference_label: str, output_path: Path,
                       annotation_text='1 kcal/mol' if col_idx == 0 else None,
                       annotation_position='top left')
 
-    qz_tag = ' (QZ-HF corr)' if qz_corr else ''
     fig.update_layout(
-        title=f'Basis Set Convergence of Atomization Energy Errors vs {reference_label}{qz_tag}',
+        title=f'Basis Set Convergence of Atomization Energy Errors vs {reference_label}',
         height=500,
         width=400 * n_metrics,
         legend=dict(orientation='h', yanchor='bottom', y=1.05, xanchor='center', x=0.5),
@@ -179,12 +175,6 @@ def main():
                                png_path=output_dir / 'convergence_vs_shci_pbe.png')
         if fig:
             figs.append(fig)
-        fig_qz = plot_convergence(df_pbe, 'SHCI+PBE+CV',
-                                  html_output_dir / 'convergence_vs_shci_pbe_QZ_corr.html',
-                                  png_path=output_dir / 'convergence_vs_shci_pbe_QZ_corr.png',
-                                  qz_corr=True)
-        if fig_qz:
-            figs.append(fig_qz)
     else:
         print(f"Not found: {pbe_csv}")
 
