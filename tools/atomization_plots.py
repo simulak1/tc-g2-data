@@ -779,18 +779,13 @@ def main():
     # Generate plots for the raw basis data
     print("\nGenerating plots...")
 
-    fig1 = plot_atomization_comparison(
-        merged_df,
-        output_path=html_output_dir / f'atomization_comparison_{basis}.html',
-        png_path=output_dir / f'atomization_comparison_{basis}.png',
-        basis=basis, show_f12=args.f12)
     fig5 = plot_method_discrepancy_shci_pbe(
         merged_df,
         output_path=html_output_dir / f'atomization_method_discrepancy_shci_pbe_{basis}.html',
         png_path=output_dir / f'atomization_method_discrepancy_shci_pbe_{basis}.png',
         basis=basis, show_f12=args.f12)
 
-    figs = [fig1, fig5]
+    figs = [fig5]
 
     if not args.no_show:
         for fig in figs:

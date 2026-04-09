@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1775731159 "main.aux" "main.bbl" "main" 1775731160
+["bibtex main"] 1775731464 "main.aux" "main.bbl" "main" 1775731465
   "/usr/share/texmf/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1775731160 1362 83718b15caf2c463b9879e286b945f2e "pdflatex"
-  "refs.bib" 1775731139 1309 1104a68ea6774522191295bb02e94923 ""
+  "main.aux" 1775731465 1362 fbe2e9dd9e63849e0c14a33189f3b329 "pdflatex"
+  "refs.bib" 1775731454 294 f5831da6ff1c03d3c10fc39658c3d02a ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1775731159 "main.tex" "main.pdf" "main" 1775731160
+["pdflatex"] 1775731464 "main.tex" "main.pdf" "main" 1775731465
   "/etc/texmf/web2c/texmf.cnf" 1617974667 40935 950c859ef6aa64cd9f8caa18792b2c7d ""
   "/usr/share/texmf/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -74,10 +74,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1617974667 40935 950c859ef6aa64cd9f8caa18792b2c7d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1761029440 5103607 ae8d035eb49640d40d14b44ef6f070f5 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1741958352 2544835 c66b54ab9248c8d4b720b8e109ae6f8a ""
-  "figures//convergence_vs_shci_pbe.png" 1775731111 256736 af462fdbdd3f8f2922e3d5e02bbd8924 ""
-  "main.aux" 1775731160 1362 83718b15caf2c463b9879e286b945f2e "pdflatex"
-  "main.bbl" 1775731159 1132 40052b6bbecc04a1992ec100b3a17214 "bibtex main"
-  "main.out" 1775731160 146 754464a81a8999796a2dcce75603c4dc "pdflatex"
+  "figures//convergence_vs_shci_pbe.png" 1775731419 256736 af462fdbdd3f8f2922e3d5e02bbd8924 ""
+  "main.aux" 1775731465 1362 fbe2e9dd9e63849e0c14a33189f3b329 "pdflatex"
+  "main.bbl" 1775731464 280 39835695237758d019cbd2b8d978a249 "bibtex main"
+  "main.out" 1775731465 146 754464a81a8999796a2dcce75603c4dc "pdflatex"
   "main.tex" 1775730468 1380 3705eb0880eb8c5eea1357711fdd375f ""
   (generated)
   "main.aux"

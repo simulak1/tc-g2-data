@@ -4,15 +4,6 @@
 Kristoffer Simula.
 \newblock Interactive plotly figures: xtc atomization energies vs shci+pbe+cv.
 \newblock Online collection, GitHub Pages, 2026.
-\newblock Landing page: \url{https://simulak1.github.io/tc-g2-data/}. Basis set
-  convergence of error metrics (MAE, RMSE, MaxE) vs SHCI+PBE+CV:
-  \url{https://simulak1.github.io/tc-g2-data/figures/convergence_vs_shci_pbe.html}.
-  Per-basis method discrepancies vs SHCI+PBE+CV:
-  \url{https://simulak1.github.io/tc-g2-data/figures/atomization_method_discrepancy_shci_pbe_pvdz.html};
-  \url{https://simulak1.github.io/tc-g2-data/figures/atomization_method_discrepancy_shci_pbe_pvtz.html};
-  \url{https://simulak1.github.io/tc-g2-data/figures/atomization_method_discrepancy_shci_pbe_pvqz.html};
-  \url{https://simulak1.github.io/tc-g2-data/figures/atomization_method_discrepancy_shci_pbe_avdz.html};
-  \url{https://simulak1.github.io/tc-g2-data/figures/atomization_method_discrepancy_shci_pbe_avtz.html};
-  \url{https://simulak1.github.io/tc-g2-data/figures/atomization_method_discrepancy_shci_pbe_avqz.html}.
+\newblock \url{https://simulak1.github.io/tc-g2-data/}.
 
 \end{thebibliography}
