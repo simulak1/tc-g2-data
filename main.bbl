@@ -6,4 +6,11 @@ Kristoffer Simula.
 \newblock Online collection, GitHub Pages, 2026.
 \newblock \url{https://simulak1.github.io/tc-g2-data/}.
 
+\bibitem{Yao2020}
+Yuan Yao, Emmanuel Giner, Junhao Li, Julien Toulouse, and C.~J. Umrigar.
+\newblock Almost exact energies for the {Gaussian-2} set with the
+  semistochastic heat-bath configuration interaction method.
+\newblock {\em J. Chem. Phys.}, 153(12):124117, 2020.
+\newblock \href{https://doi.org/10.1063/5.0018577}{doi:10.1063/5.0018577}.
+
 \end{thebibliography}

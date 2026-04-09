@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \PassOptionsToPackage{hyphens}{url}
@@ -67,12 +68,8 @@ the semicanonical orbitals
 %
 \begin{equation}
   C^{\text{final}} = C^{\text{virt}}\,V_{\text{kept}}\,W
-  \qquad [n_{\text{large,AO}}\times n_{\text{sel}}]
+  \qquad [n_{\text{large,AO}}\times n_{\text{sel}}].
 \end{equation}
-%
-satisfying $\langle\hat a_m|\hat F|\hat a_n\rangle = \tilde\varepsilon_m\delta_{mn}$,
-with orbital energies $\tilde\varepsilon_m$ entering the CCSD(T) denominators
-$D_{ij}^{ab} = \varepsilon_i + \varepsilon_j - \tilde\varepsilon_a - \tilde\varepsilon_b$.
 
 %% ============================================================
 \section{Atomization energies}
@@ -81,6 +78,10 @@ $D_{ij}^{ab} = \varepsilon_i + \varepsilon_j - \tilde\varepsilon_a - \tilde\vare
 We compute atomization energies with several xTC method families and benchmark
 them against SHCI+PBE+CV reference values. All calculations employ
 effective core potentials (ECPs) for the third-row elements.
+The SHCI, SHCI+PBE, and conventional CCSD(T) results used here as references
+are taken from Ref.~\cite{Yao2020}; the SHCI+PBE energies extrapolated to the
+complete basis set (CBS) limit are considered the best available benchmark
+for the G2/55 set.
 Per-basis, per-molecule method discrepancies and the full basis set convergence
 of error metrics are hosted as interactive plotly figures~\cite{interactivefigs}.
 
@@ -96,6 +97,7 @@ of error metrics are hosted as interactive plotly figures~\cite{interactivefigs}
 
 \input{tables/shci_pbe_summary.tex}
 
+\clearpage
 \bibliographystyle{plain}
 \bibliography{refs}
 
