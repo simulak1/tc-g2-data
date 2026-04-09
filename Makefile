@@ -21,8 +21,8 @@ figures: data/atomization_comparison.csv .venv
 	./scripts.sh/plot_convergence.sh
 
 # --- paper ---
-main.pdf: main.tex figures
-	latexmk -pdf main.tex
+main.pdf: main.tex refs.bib figures
+	latexmk -pdf -bibtex main.tex
 
 clean:
 	latexmk -C

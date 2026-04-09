@@ -2,17 +2,14 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\PassOptionsToPackage{hyphens}{url}
 \usepackage{hyperref}
-\usepackage{pgffor}
+% Allow \url{} to line-break anywhere (long GitHub-Pages URLs in bib entry).
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
 
 \graphicspath{{figures/}}
-
-% Base URL of the GitHub Pages site serving interactive HTML figures.
-% Update this to your actual username/repo once the GitHub remote is set up.
-\newcommand{\pagesbase}{https://YOURUSER.github.io/tcjastrowfitting}
-\newcommand{\interactivelink}[1]{%
-  \href{\pagesbase/figures/#1.html}{[interactive]}%
-}
 
 \title{Transcorrelated Jastrow Fitting: Atomization Energies}
 \author{}
@@ -21,50 +18,26 @@
 \begin{document}
 \maketitle
 
-\noindent All figures referenced as \interactivelink{name} are hosted at
-\url{\pagesbase/}.
-
 %% ============================================================
 \section{Atomization energies}
 %% ============================================================
 
-\subsection{aug-cc-pVTZ}
-
-\begin{itemize}
-  \item Atomization energies and deviations from experiment:
-        \interactivelink{atomization_comparison_avtz}
-  \item Method discrepancy from SHCI+PBE+CV reference:
-        \interactivelink{atomization_method_discrepancy_shci_pbe_avtz}
-  \item Atomization energies, QZ HF correction:
-        \interactivelink{atomization_comparison_avtz_QZ_corr}
-  \item Method discrepancy, QZ HF correction:
-        \interactivelink{atomization_method_discrepancy_shci_pbe_avtz_QZ_corr}
-\end{itemize}
-
-%% ============================================================
-\section{Basis set convergence}
-%% ============================================================
+We compute atomization energies with several xTC method families and benchmark
+them against SHCI+PBE+CV reference values. Per-basis, per-molecule method
+discrepancies and the full basis set convergence of error metrics are hosted
+as interactive plotly figures~\cite{interactivefigs}.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{convergence_vs_shci_pbe.png}
-  \caption{Basis set convergence of atomization energy errors vs SHCI+PBE+CV.
-    \interactivelink{convergence_vs_shci_pbe}}
+  \caption{Basis set convergence (MAE, RMSE, MaxE in kcal/mol) of atomization
+    energy errors vs SHCI+PBE+CV for each method family, on a unified x-axis
+    interleaving cc-pV$x$Z and aug-cc-pV$x$Z. The interactive version and
+    per-basis per-molecule breakdowns are available
+    online~\cite{interactivefigs}.}
 \end{figure}
 
-%% ============================================================
-\appendix
-\section{All basis sets}
-%% ============================================================
-
-\foreach \basis in {pvdz,pvtz,pvqz,avdz,avqz}{%
-  \subsection{\basis}
-  \begin{itemize}
-    \item Atomization energies:
-          \interactivelink{atomization_comparison_\basis}
-    \item Method discrepancy vs SHCI+PBE+CV:
-          \interactivelink{atomization_method_discrepancy_shci_pbe_\basis}
-  \end{itemize}
-}
+\bibliographystyle{plain}
+\bibliography{refs}
 
 \end{document}
