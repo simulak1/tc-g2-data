@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1775735040 "main.aux" "main.bbl" "main" 1775735067
+["bibtex main"] 1775735345 "main.aux" "main.bbl" "main" 1775735356
   "/usr/share/texmf/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1775735067 2396 79ce8dbcc89c825374de1d3354fd076e "pdflatex"
-  "refs.bib" 1775735028 905 4321dee5363b38e114490641e7d50145 ""
+  "main.aux" 1775735356 2396 79ce8dbcc89c825374de1d3354fd076e "pdflatex"
+  "refs.bib" 1775735240 765 9c3abc37d0b94461619bf3415bd35ed8 ""
   (generated)
-  "main.blg"
   "main.bbl"
-["pdflatex"] 1775735066 "main.tex" "main.pdf" "main" 1775735067
+  "main.blg"
+["pdflatex"] 1775735355 "main.tex" "main.pdf" "main" 1775735356
   "/etc/texmf/web2c/texmf.cnf" 1617974667 40935 950c859ef6aa64cd9f8caa18792b2c7d ""
   "/usr/share/texmf/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -88,15 +88,15 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1617974667 40935 950c859ef6aa64cd9f8caa18792b2c7d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1761029440 5103607 ae8d035eb49640d40d14b44ef6f070f5 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1741958352 2544835 c66b54ab9248c8d4b720b8e109ae6f8a ""
-  "figures//convergence_vs_shci_pbe.png" 1775735065 256736 af462fdbdd3f8f2922e3d5e02bbd8924 ""
-  "main.aux" 1775735067 2396 79ce8dbcc89c825374de1d3354fd076e "pdflatex"
-  "main.bbl" 1775735040 736 ad1bb93712cb17e36f8448c54df619a2 "bibtex main"
-  "main.out" 1775735067 219 1490ce6c8da7363b87e12bfaf9a0279c "pdflatex"
+  "figures//convergence_vs_shci_pbe.png" 1775735354 256736 af462fdbdd3f8f2922e3d5e02bbd8924 ""
+  "main.aux" 1775735356 2396 79ce8dbcc89c825374de1d3354fd076e "pdflatex"
+  "main.bbl" 1775735345 628 8f19fa4566c900a481b14dd663220d7f "bibtex main"
+  "main.out" 1775735356 219 1490ce6c8da7363b87e12bfaf9a0279c "pdflatex"
   "main.tex" 1775735032 4425 96f9274ab5e22dc4a434f0296df0d55f ""
-  "tables/shci_pbe_summary.tex" 1775735065 986 2fb572306de157ef1269e96610f1def1 ""
-  "tables/timing_summary.tex" 1775735066 958 9c2c7512ad95c187fe4b462f4eecb7d1 ""
+  "tables/shci_pbe_summary.tex" 1775735355 986 2fb572306de157ef1269e96610f1def1 ""
+  "tables/timing_summary.tex" 1775735355 958 9c2c7512ad95c187fe4b462f4eecb7d1 ""
   (generated)
-  "main.log"
   "main.aux"
   "main.out"
   "main.pdf"
+  "main.log"
