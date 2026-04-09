@@ -23,6 +23,7 @@ figures: data/atomization_comparison.csv .venv
 # --- tables ---
 tables: data/atomization_comparison.csv .venv
 	./scripts.sh/make_tables.sh
+	./scripts.sh/plot_timing.sh
 
 # --- paper ---
 main.pdf: main.tex refs.bib figures tables

@@ -1,15 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1775733973 "main.aux" "main.bbl" "main" 1775734013
+["bibtex main"] 1775735040 "main.aux" "main.bbl" "main" 1775735067
   "/usr/share/texmf/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1775734013 1887 3bbbca1d2139b156eb49d2a278e0245d "pdflatex"
-  "refs.bib" 1775733706 765 9c3abc37d0b94461619bf3415bd35ed8 ""
+  "main.aux" 1775735067 2396 79ce8dbcc89c825374de1d3354fd076e "pdflatex"
+  "refs.bib" 1775735028 905 4321dee5363b38e114490641e7d50145 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1775734012 "/home/simula/Desktop/tcjastrowfitting/main.tex" "/home/simula/Desktop/tcjastrowfitting/main.pdf" "main" 1775734013
+["pdflatex"] 1775735066 "main.tex" "main.pdf" "main" 1775735067
   "/etc/texmf/web2c/texmf.cnf" 1617974667 40935 950c859ef6aa64cd9f8caa18792b2c7d ""
-  "/home/simula/Desktop/tcjastrowfitting/main.aux" 1775734013 1887 3bbbca1d2139b156eb49d2a278e0245d ""
-  "/home/simula/Desktop/tcjastrowfitting/main.tex" 1775734012 4390 a19988a6081dd8acedab459152928c3a ""
   "/usr/share/texmf/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -90,16 +88,15 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1617974667 40935 950c859ef6aa64cd9f8caa18792b2c7d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1761029440 5103607 ae8d035eb49640d40d14b44ef6f070f5 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1741958352 2544835 c66b54ab9248c8d4b720b8e109ae6f8a ""
-  "figures//convergence_vs_shci_pbe.png" 1775733026 256736 af462fdbdd3f8f2922e3d5e02bbd8924 ""
-  "main.aux" 1775734013 1887 3bbbca1d2139b156eb49d2a278e0245d "pdflatex"
-  "main.bbl" 1775733973 628 8f19fa4566c900a481b14dd663220d7f "bibtex main"
-  "main.out" 1775734013 219 1490ce6c8da7363b87e12bfaf9a0279c "pdflatex"
-  "main.tex" 1775734012 4390 a19988a6081dd8acedab459152928c3a ""
-  "tables/shci_pbe_summary.tex" 1775733026 986 2fb572306de157ef1269e96610f1def1 ""
+  "figures//convergence_vs_shci_pbe.png" 1775735065 256736 af462fdbdd3f8f2922e3d5e02bbd8924 ""
+  "main.aux" 1775735067 2396 79ce8dbcc89c825374de1d3354fd076e "pdflatex"
+  "main.bbl" 1775735040 736 ad1bb93712cb17e36f8448c54df619a2 "bibtex main"
+  "main.out" 1775735067 219 1490ce6c8da7363b87e12bfaf9a0279c "pdflatex"
+  "main.tex" 1775735032 4425 96f9274ab5e22dc4a434f0296df0d55f ""
+  "tables/shci_pbe_summary.tex" 1775735065 986 2fb572306de157ef1269e96610f1def1 ""
+  "tables/timing_summary.tex" 1775735066 958 9c2c7512ad95c187fe4b462f4eecb7d1 ""
   (generated)
-  "main.out"
-  "main.aux"
-  "/home/simula/Desktop/tcjastrowfitting/main.pdf"
-  "main.pdf"
   "main.log"
-  "/home/simula/Desktop/tcjastrowfitting/main.log"
+  "main.aux"
+  "main.out"
+  "main.pdf"

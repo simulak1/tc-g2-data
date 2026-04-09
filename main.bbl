@@ -4,7 +4,9 @@
 Kristoffer Simula.
 \newblock Interactive plotly figures: xtc atomization energies vs shci+pbe+cv.
 \newblock Online collection, GitHub Pages, 2026.
-\newblock \url{https://simulak1.github.io/tc-g2-data/}.
+\newblock \url{https://simulak1.github.io/tc-g2-data/}. Pipeline timing
+  waterfall:
+  \url{https://simulak1.github.io/tc-g2-data/figures/pipeline_waterfall.html}.
 
 \bibitem{Yao2020}
 Yuan Yao, Emmanuel Giner, Junhao Li, Julien Toulouse, and C.~J. Umrigar.
