@@ -1,5 +1,0 @@
-species,basis_set,method,energy_hartree,slurm_file
-cl,aug-cc-pCVQZ,ΛUCCSD(T),-460.155345856432,slurm-44809.out
-p,aug-cc-pCVQZ,ΛUCCSD(T),-341.261326515936,slurm-44797.out
-s,aug-cc-pCVQZ,ΛUCCSD(T),-398.114142930436,slurm-44803.out
-si,aug-cc-pCVQZ,ΛUCCSD(T),-289.36023478951,slurm-44791.out
