@@ -9,21 +9,27 @@ all: figures tables main.pdf
 	@exit 1
 
 # --- data ---
-data/atomization_comparison.csv: .venv \
+data/ECP/atomization_comparison.csv: .venv \
 		reference_data/umrigar_ae_reference.csv \
 		reference_data/umrigar_molpro_reference.csv \
-		data/ccsd_energies.csv
-	./scripts.sh/build_ae_data.sh
+		data/ECP/ccsd_energies.csv
+	bash ./scripts.sh/ECP/build_ae_data.sh
+	
+ALL_ELEC_CSV := $(shell find data/ALL_ELEC -type f -name '*.csv')
+
+data/ALL_ELEC/atomization_energies_H05.csv: .venv $(ALL_ELEC_CSV)
+	bash ./scripts.sh/ALL_ELEC/build_ae_data.sh
 
 # --- figures ---
-figures: data/atomization_comparison.csv .venv
-	./scripts.sh/plot_ae_data.sh
-	./scripts.sh/plot_convergence.sh
+figures: data/ECP/atomization_comparison.csv data/ALL_ELEC/atomization_energies_H05.csv .venv
+	bash ./scripts.sh/ECP/plot_ae_data.sh
+	bash ./scripts.sh/ECP/plot_convergence.sh
+	bash ./scripts.sh/ALL_ELEC/plot.sh
 
 # --- tables ---
-tables: data/atomization_comparison.csv .venv
-	./scripts.sh/make_tables.sh
-	./scripts.sh/plot_timing.sh
+tables: data/ECP/atomization_comparison.csv data/ALL_ELEC/atomization_energies_H05.csv .venv
+	bash ./scripts.sh/ECP/make_tables.sh
+	bash ./scripts.sh/ECP/plot_timing.sh
 
 # --- paper ---
 main.pdf: main.tex refs.bib figures tables

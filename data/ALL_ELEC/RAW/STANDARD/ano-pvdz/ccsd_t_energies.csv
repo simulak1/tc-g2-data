@@ -1,0 +1,11 @@
+species,basis_set,method,energy_hartree,slurm_file
+h,ano-pvdz,ΛUCCSD(T),-0.499567312273,slurm-894764.out
+li,ano-pvdz,ΛUCCSD(T),-7.478774066903,slurm-894531.out
+li+,ano-pvdz,ΛCCSD(T),-7.28039143629,slurm-894555.out
+li2,ano-pvdz,ΛCCSD(T),-14.967933283286,slurm-894537.out
+li_h,ano-pvdz,ΛCCSD(T),-8.051256833095,slurm-894579.out
+na,ano-pvdz,ΛUCCSD(T),-162.089844521492,slurm-894543.out
+na+,ano-pvdz,ΛCCSD(T),-161.908601786538,slurm-894561.out
+na2,ano-pvdz,ΛCCSD(T),-324.187269897201,slurm-894549.out
+si,ano-pvdz,ΛUCCSD(T),-289.220869305103,slurm-894567.out
+si2,ano-pvdz,ΛUCCSD(T),-578.540304187286,slurm-894573.out
