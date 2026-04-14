@@ -112,44 +112,76 @@
   </p>
 
   <h2>All-electron calculations</h2>
-  <p>All data in this section are from calculations using all-electron methods.</p>
+  <p>All data in this section are from calculations using all-electron methods.
+     Na and Li use core-valence correlation basis sets: for aug-cc/ano-pV(D+d)Z the Na/Li basis is aug-cc-pCVDZ,
+     for aug-cc/ano-pV(T+d)Z it is aug-cc/ano-pCVTZ, etc., because the s-valence orbital of Na and Li has
+     non-negligible correlation energy not captured by regular valence basis sets.</p>
 
-  <h3>Basis set convergence</h3>
+  <h3>Standard calculations</h3>
+  <p>Basis set convergence: <a href="figures/ALL_ELEC/STANDARD/convergence_vs_shci_pbe.html">convergence vs SHCI+PBE+CV</a></p>
+  <p>Atomization energy discrepancy vs SHCI+PBE+CV by basis:</p>
   <ul>
-    <li><a href="figures/ALL_ELEC/PBE/convergence_vs_shci_pbe.html">Convergence vs SHCI+PBE+CV</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_cc-pvdz.html">cc-pVDZ</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_cc-pVDdZ.html">cc-pV(D+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_cc-pvtz.html">cc-pVTZ</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_cc-pVTdZ.html">cc-pV(T+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_aug-cc-pvdz.html">aug-cc-pVDZ</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_aug-cc-pVDdZ.html">aug-cc-pV(D+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_aug-cc-pvtz.html">aug-cc-pVTZ</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_aug-cc-pVTdZ.html">aug-cc-pV(T+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_aug-cc-pvqz.html">aug-cc-pVQZ</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_aug-cc-pVQdZ.html">aug-cc-pV(Q+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_aug-cc-pCVQZ.html">aug-cc-pCVQZ</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_ano-pvdz.html">ano-pVDZ</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_aug-ano-pvdz.html">aug-ano-pVDZ</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_aug-ano-pVDdZ.html">aug-ano-pV(D+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_aug-ano-pvtz.html">aug-ano-pVTZ</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_aug-ano-pVTdZ.html">aug-ano-pV(T+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_aug-ano-pvqz.html">aug-ano-pVQZ</a></li>
+    <li><a href="figures/ALL_ELEC/STANDARD/atomization_method_discrepancy_shci_pbe_aug-ano-pVQdZ.html">aug-ano-pV(Q+d)Z</a></li>
   </ul>
 
-  <h3>Atomization energies</h3>
+  <h3>Mixed basis</h3>
+  <p>Basis set convergence: <a href="figures/ALL_ELEC/MIX_BASIS/convergence_vs_shci_pbe.html">convergence vs SHCI+PBE+CV</a></p>
+  <p>Atomization energy discrepancy vs SHCI+PBE+CV by basis:</p>
   <ul>
-    <li><b>Standard calculation</b>: <a
-        href="figures/ALL_ELEC/atomization_H05/PBE/Mix/Prune/atomization_energy_discrepancy.html">discrepancy vs
-        SHCI+PBE+CV</a>
-    </li>
-    <li><b>Reference correction scheme</b>: <a
-        href="figures/ALL_ELEC/atomization_H05/PBE/Ref-corr/atomization_energy_discrepancy.html">discrepancy vs
-        SHCI+PBE+CV</a>
-    </li>
-    <li><b>SVD projection scheme</b>: <a
-        href="figures/ALL_ELEC/atomization_H05/PBE/SVD/atomization_energy_discrepancy.html">discrepancy vs
-        SHCI+PBE+CV</a>
-    </li>
-    <li><b>F12</b>: <a href="figures/ALL_ELEC/atomization_H05/PBE/F12/atomization_energy_discrepancy.html">discrepancy
-        vs
-        SHCI+PBE+CV</a>
-    </li>
+    <li><a href="figures/ALL_ELEC/MIX_BASIS/atomization_method_discrepancy_shci_pbe_cc-pVTdZ.html">cc-pV(T+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/MIX_BASIS/atomization_method_discrepancy_shci_pbe_aug-cc-pVDdZ.html">aug-cc-pV(D+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/MIX_BASIS/atomization_method_discrepancy_shci_pbe_aug-cc-pVTdZ.html">aug-cc-pV(T+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/MIX_BASIS/atomization_method_discrepancy_shci_pbe_aug-cc-pVQdZ.html">aug-cc-pV(Q+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/MIX_BASIS/atomization_method_discrepancy_shci_pbe_aug-cc-pV5dZ.html">aug-cc-pV(5+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/MIX_BASIS/atomization_method_discrepancy_shci_pbe_aug-ano-pVDdZ.html">aug-ano-pV(D+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/MIX_BASIS/atomization_method_discrepancy_shci_pbe_aug-ano-pVTdZ.html">aug-ano-pV(T+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/MIX_BASIS/atomization_method_discrepancy_shci_pbe_aug-ano-pVQdZ.html">aug-ano-pV(Q+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/MIX_BASIS/atomization_method_discrepancy_shci_pbe_aug-ano-pV5dZ.html">aug-ano-pV(5+d)Z</a></li>
   </ul>
-  <p> Note that the basis sets used here for Na and Li element are core-valence correlation basis set correspondingly,
-    that
-    means for aug-cc/ano-pV(D+d)Z, the Na and Li basis are aug-cc-pCVDZ, and for aug-cc/ano-pV(T+d)Z, the Na and Li
-    basis
-    are aug-cc/ano-pCVTZ, etc. This is because the s-valence orbital of Na and Li have non-negligible contribution to
-    the
-    correlation energy, and the regular valence basis sets are not sufficient to describe the correlation of
-    it. TODO: F12 is not using CV basis set for Na and Li. </p>
 
-  <p style="color:#666;margin-top:2em;">Generated by <code>scripts.sh/ALL_ELEC/plot_ae_data.sh</code>,
-    <code>scripts.sh/ALL_ELEC/plot_convergence.sh</code>, and <code>scripts.sh/ALL_ELEC/plot_timing.sh</code>.
-  </p>
+  <h3>Reference correction scheme</h3>
+  <p>Basis set convergence: <a href="figures/ALL_ELEC/Ref_correction/convergence_vs_shci_pbe.html">convergence vs SHCI+PBE+CV</a></p>
+  <p>Atomization energy discrepancy vs SHCI+PBE+CV by basis:</p>
+  <ul>
+    <li><a href="figures/ALL_ELEC/Ref_correction/atomization_method_discrepancy_shci_pbe_aug-cc-pVDdZ.html">aug-cc-pV(D+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/Ref_correction/atomization_method_discrepancy_shci_pbe_aug-cc-pVTdZ.html">aug-cc-pV(T+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/Ref_correction/atomization_method_discrepancy_shci_pbe_aug-cc-pVQdZ.html">aug-cc-pV(Q+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/Ref_correction/atomization_method_discrepancy_shci_pbe_aug-ano-pVDdZ.html">aug-ano-pV(D+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/Ref_correction/atomization_method_discrepancy_shci_pbe_aug-ano-pVTdZ.html">aug-ano-pV(T+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/Ref_correction/atomization_method_discrepancy_shci_pbe_aug-ano-pVQdZ.html">aug-ano-pV(Q+d)Z</a></li>
+  </ul>
+
+  <h3>SVD projection scheme</h3>
+  <p>Basis set convergence: <a href="figures/ALL_ELEC/SVD_proj/convergence_vs_shci_pbe.html">convergence vs SHCI+PBE+CV</a></p>
+  <p>Atomization energy discrepancy vs SHCI+PBE+CV by basis:</p>
+  <ul>
+    <li><a href="figures/ALL_ELEC/SVD_proj/atomization_method_discrepancy_shci_pbe_aug-cc-pVDdZ.html">aug-cc-pV(D+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/SVD_proj/atomization_method_discrepancy_shci_pbe_aug-cc-pVTdZ.html">aug-cc-pV(T+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/SVD_proj/atomization_method_discrepancy_shci_pbe_aug-cc-pVQdZ.html">aug-cc-pV(Q+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/SVD_proj/atomization_method_discrepancy_shci_pbe_aug-ano-pVDdZ.html">aug-ano-pV(D+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/SVD_proj/atomization_method_discrepancy_shci_pbe_aug-ano-pVTdZ.html">aug-ano-pV(T+d)Z</a></li>
+    <li><a href="figures/ALL_ELEC/SVD_proj/atomization_method_discrepancy_shci_pbe_aug-ano-pVQdZ.html">aug-ano-pV(Q+d)Z</a></li>
+  </ul>
+
+  <p style="color:#666;margin-top:2em;">Generated by <code>scripts.sh/common/build_and_plot.sh</code> via
+    <code>make figures</code>.</p>
 </body>
 
 </html>
