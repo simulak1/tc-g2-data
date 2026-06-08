@@ -65,8 +65,8 @@
     <strong>Note:</strong> In those calculations, Na and Li specially use core-valence correlation basis sets: for
     aug-cc/ano-pV(D+d)Z the Na/Li basis is
     aug-cc-pCVDZ,
-    for aug-cc/ano-pV(T+d)Z it is aug-cc/ano-pCVTZ, etc. The aug-cc-pCVQZ of Li is used for 5Z basis set calculation due
-    to the lack of higher-order basis sets. Because the s-valence orbital of Na and Li has non-negligible
+    for aug-cc/ano-pV(T+d)Z it is aug-cc-pCVTZ, etc. The aug-cc-pCVQZ of Li is used for 5Z basis set calculation due
+    to the lack of higher-order basis sets. This is because the s-valence orbital of Na and Li has non-negligible
     correlation with their p-core orbitals, which can not be captured by regular valence basis sets. The comparison of
     different basis sets for Na and Li is shown in the <a href="figures/ALL_ELEC/li_na_basis_comparison.html"> Li/Na Basis Comparison</a>.
   </div>
@@ -136,19 +136,18 @@
 
   <h2>Comparison across methods</h2>
   <p>Combines ECP and all-electron RAVC results on a shared axis.
-    ECP xTC is shown in orange, AE-Dunning (RAVC, aug-cc-pV(X+d)Z) in green,
-    AE-ANO (RAVC, aug-ano-pV(X+d)Z) in purple, F12-Dunning (Diagonal ansatz, F12b, and aug-cc-pV(X+d)Z) in red, and
-    plain frozen-core CCSD(T)
-    in blue. The convergence plot uses a unified basis axis (pvDZ, avDZ,
-    pvTZ, avTZ, pvQZ, avQZ, pv5Z, av5Z): xTC occupies the augmented slots, plain
-    frozen-core CCSD(T) occupies the non-augmented slots. The per-basis
-    plots include F12 at the matching avDZ/avTZ/avQZ cardinal and plain
-    CCSD(T) at pvDZ/pvTZ/pvQZ/pv5Z as fixed reference.</p>
+    ECP (RAVC) xTC is shown in orange, AE-Dunning (RAVC, aug-cc-pV(X+d)Z) in green,
+    AE-ANO (RAVC, aug-ano-pV(X+d)Z) in purple, and
+    plain CCSD(T)
+    in blue. The convergence plot uses a unified basis axis (avDZ,
+    avTZ, avQZ, av5Z). The per-basis
+    plots include plain
+    CCSD(T) at avDZ/avTZ/avQZ/av5Z as fixed reference.</p>
 
   <h3>Basis set convergence</h3>
   <ul>
     <li><a href="figures/cross_method/convergence_vs_shci_pbe.html">Convergence vs SHCI+PBE+CV (ECP xTC, AE-Dunning,
-        AE-ANO, F12, frozen-core CCSD(T))</a></li>
+        AE-ANO, CCSD(T))</a></li>
   </ul>
 
   <h3>Per-molecule discrepancies</h3>
