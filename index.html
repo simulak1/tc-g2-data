@@ -106,13 +106,13 @@
 
   <h3>Timing</h3>
   <div class="note">
-    <strong>Note:</strong> These timings are from an early implementation of the workflow in which
-    the SVD projection step (step 00) was run separately before the TC integral construction (step 03 TCHInt).
-    In the current all-electron workflow the SVD projection is performed internally within step 03 TCHInt.
-    To compare with all-electron timings, add the <em>00 projection</em> time to the <em>03 TCHInt</em> time.
+    <strong>Note:</strong> Timings are in node-hours on 128-core nodes. Panels are shown for both
+    Ne-core and He-core ccECPs; the He-core panels reuse the Ne-core timings for the systems that
+    were not recalculated with He-core ccECPs (no second-row atoms).
+    RHF and VMC optimisation are performed once at av5z and shared across all bases.
   </div>
   <ul>
-    <li><a href="figures/ECP/pipeline_waterfall.html">Pipeline wall time per system by basis</a></li>
+    <li><a href="figures/ECP/pipeline_waterfall.html">Pipeline node-hours per system by basis (Ne-core and He-core ccECPs)</a></li>
   </ul>
 
   <h3>Basis set convergence</h3>
